@@ -7,7 +7,7 @@
  ],
  "expect": "ask",
  "source": "edaloop evaluation archive",
- "licence": "see the HackRF repository licence (Great Scott Gadgets)",
+ "licence": "GPL-2.0 (the repository's licence; the board folder has none of its own)",
  "parts": 25,
  "initial": {
   "built": false,

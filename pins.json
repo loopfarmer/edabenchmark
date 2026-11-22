@@ -1,8 +1,12 @@
 {
-  "edaloop": {"repo": "loopfarmer/edaloop", "commit": "8f53d6f31759dd4d2dac74d8d00b0dd78e004cc1", "testbenches": "edaloop/testbenches/*.yaml"},
-  "kicad_cli": "10.0.5",
-  "pi": "@earendil-works/pi-coding-agent 1.0.2",
-  "edaagent": "~/edaagent (uncommitted working tree, 2026-11-22)",
-  "gufo_lfm3": "gufo 0.34.0 + lfm3 extension dspark branch with the constraint fix in runner.cpp (local tree ~/cc/lfm3-gufo-extension at bebb2ee + uncommitted patch); without the fix, JSON-schema requests 500 under concurrency",
-  "note": "Scores are only comparable across runs with the same pins. Rebuild tasks/ with tools/freeze_tasks.py after changing edaloop."
+ "edaloop": {
+  "repo": "loopfarmer/edaloop",
+  "commit": "8f53d6f31759dd4d2dac74d8d00b0dd78e004cc1",
+  "testbenches": "edaloop/testbenches/*.yaml"
+ },
+ "kicad_cli": "10.0.5",
+ "pi": "@earendil-works/pi-coding-agent 1.0.2",
+ "edaagent": "edaagent commit e69a387 (not yet published: the harness track and the pi extension come from it)",
+ "gufo_lfm3": "gufo 0.34.0 + lfm3 extension dspark branch with the constraint fix in runner.cpp (local tree ~/cc/lfm3-gufo-extension at bebb2ee + uncommitted patch); without the fix, JSON-schema requests 500 under concurrency",
+ "note": "Scores are only comparable across runs with the same pins. Rebuild tasks/ with tools/freeze_tasks.py after changing edaloop."
 }

@@ -7,7 +7,7 @@
  ],
  "expect": "clean",
  "source": "edaloop evaluation archive",
- "licence": "CC BY-SA 3.0 (Adafruit)",
+ "licence": "CC BY-SA 3.0",
  "parts": 18,
  "initial": {
   "built": true,

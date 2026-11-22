@@ -93,7 +93,7 @@ a track that uses an off-site model.
 ## Requirements
 
 - edaloop at the commit in `pins.json`, with KiCad 10 (`kicad-cli`).
-- edaagent at `../edaagent`, which supplies the harness, the pi extension and the skill cards.
+- edaagent at `../edaagent` (commit in `pins.json`; not yet public), which supplies the harness, the pi extension and the skill cards. The decision track needs only `edaagent.tiers`.
 - pi 1.0.2 for the agent tracks.
 - The local endpoints in `models.json` (halo: gufo LFM3 with the constraint fix, Loom Inkling), or OpenRouter with
   `OPENROUTER_API_KEY` set.

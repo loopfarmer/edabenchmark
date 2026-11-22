@@ -7,7 +7,7 @@
   },
   "kicad_cli": "10.0.5",
   "pi": "@earendil-works/pi-coding-agent 1.0.2",
-  "edaagent": "~/edaagent (uncommitted working tree, 2026-11-22)",
+  "edaagent": "edaagent commit e69a387 (not yet published: the harness track and the pi extension come from it)",
   "gufo_lfm3": "gufo 0.34.0 + lfm3 extension dspark branch with the constraint fix in runner.cpp (local tree ~/cc/lfm3-gufo-extension at bebb2ee + uncommitted patch); without the fix, JSON-schema requests 500 under concurrency",
   "note": "Scores are only comparable across runs with the same pins. Rebuild tasks/ with tools/freeze_tasks.py after changing edaloop."
  },
@@ -22,7 +22,7 @@
    ],
    "parts": 25,
    "split": "smoke",
-   "sha": "38671ec7078dcd84",
+   "sha": "e2b3098c512d2a9b",
    "systems_passed": 4,
    "systems_run": 4
   },
@@ -37,7 +37,7 @@
    ],
    "parts": 18,
    "split": "smoke",
-   "sha": "4d0fdb084043b761",
+   "sha": "12e88af1e246167a",
    "systems_passed": 4,
    "systems_run": 4
   },
@@ -51,7 +51,7 @@
    ],
    "parts": 18,
    "split": "smoke",
-   "sha": "2338a5aca9184853",
+   "sha": "1482e90b9ffdb521",
    "systems_passed": 4,
    "systems_run": 4
   },
@@ -65,7 +65,7 @@
    ],
    "parts": 152,
    "split": "frontier",
-   "sha": "25f737857eda3026",
+   "sha": "5079e79047e3243e",
    "systems_passed": 0,
    "systems_run": 4
   },
@@ -80,7 +80,7 @@
    ],
    "parts": 42,
    "split": "smoke",
-   "sha": "04ebd9790078ea89",
+   "sha": "8ad02ab06cd91f88",
    "systems_passed": 4,
    "systems_run": 4
   },
@@ -94,7 +94,7 @@
    ],
    "parts": 42,
    "split": "smoke",
-   "sha": "5453c0c97e37c315",
+   "sha": "870a78a1c75de482",
    "systems_passed": 4,
    "systems_run": 4
   },
