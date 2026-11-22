@@ -2,7 +2,8 @@
  "edaloop": {
   "repo": "loopfarmer/edaloop",
   "commit": "8f53d6f31759dd4d2dac74d8d00b0dd78e004cc1",
-  "testbenches": "edaloop/testbenches/*.yaml"
+  "testbenches": "edaloop/testbenches/*.yaml",
+  "local_patch": "the runs on 2026-11-22 used 8f53d6f plus an uncommitted debug patch in the local clone: boardgen.py called kicad_ops_dbg.py, a copy of kicad_ops.py that prints NOTPLACED/REACHED/BOX/SPAN lines to stderr, and wrote each build spec to /tmp/spec_copy.json. Placement, critic and DRC behaviour are unchanged; build output isn't."
  },
  "kicad_cli": "10.0.5",
  "pi": "@earendil-works/pi-coding-agent 1.0.2",

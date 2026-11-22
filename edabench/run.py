@@ -188,6 +188,8 @@ def one(track: str, model: str, task: dict, args) -> dict:
               + ("+overlay" if args.overlay else "") + ("+refine" if args.refine and model != "none" else ""))
     if model == "none":
         system = "refine-only"
+    if isinstance(r.get("refine"), dict) and r["refine"].get("board"):
+        r["refine"]["board"] = str(Path(r["refine"]["board"]).relative_to(ROOT)) if str(r["refine"]["board"]).startswith(str(ROOT)) else "refined"
     r.update({"track": track, "system": system, "task": task["id"], "family": task["family"], "split": task["split"],
               "tag": tag, "pins": {"edaloop": PINS["edaloop"]["commit"][:9]}})
     return r
