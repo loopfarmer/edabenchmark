@@ -8,5 +8,9 @@
  "pi": "@earendil-works/pi-coding-agent 1.0.2",
  "edaagent": "edaagent commit e69a387 (not yet published: the harness track and the pi extension come from it)",
  "gufo_lfm3": "gufo 0.34.0 + lfm3 extension dspark branch with the constraint fix in runner.cpp (local tree ~/cc/lfm3-gufo-extension at bebb2ee + uncommitted patch); without the fix, JSON-schema requests 500 under concurrency",
- "note": "Scores are only comparable across runs with the same pins. Rebuild tasks/ with tools/freeze_tasks.py after changing edaloop."
+ "note": "Scores are only comparable across runs with the same pins. Rebuild tasks/ with tools/freeze_tasks.py after changing edaloop.",
+ "edaroute": {
+  "repo": "loopfarmer/edaroute",
+  "commit": "20a95dd35b8a973940243467a544d55e1b491eb8"
+ }
 }

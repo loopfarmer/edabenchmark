@@ -40,6 +40,10 @@ PI_RAW_PROMPT = """Fix the placement of the circuit board described in descripti
 - You are done when the build succeeds and the critic reports no errors: then write a one-line summary to DONE.txt.
 - If a value or decision belongs to a person, write the exact question to ASK_PERSON.txt and stop. Never invent a value.
 The edaloop skill describes the tools."""
+REFINE_HINT = """
+- If the critic still reports errors that no description change clears (a part in the way of an RF line), you may run
+  `edaroute refine board/<name>.kicad_pcb board/chains_<name>.yaml refined/<name>.kicad_pcb --budget 120` with
+  PYTHONPATH set to edaloop's src. Put the whole board folder, with the refined board in it, in ./refined."""
 
 
 def manifest() -> list[dict]:
@@ -76,13 +80,21 @@ def score(task: dict, work: Path) -> dict:
         ok = asked and not prot
         return {"pass": ok, "why": "asked, nothing invented" if ok else ("changed " + ",".join(prot) if prot else "did not ask")}
     st = stt.evaluate(work / "description.yaml", work / ".score-build")
-    ok = st.clean and not prot and not asked
-    why = ("clean" if ok else "asked instead" if asked else "changed " + ",".join(prot) if prot
+    refined = None
+    if not st.clean and st.built and not prot and not asked and (work / "refined").is_dir():
+        from edaagent import refine as rf
+        refined = rf.verify(work, Path(st.board))
+    ok = (st.clean or bool(refined and refined["ok"])) and not prot and not asked
+    why = (("clean" if st.clean else refined["why"]) if ok else (refined["why"] if refined else "")) or ("clean" if ok else "asked instead" if asked else "changed " + ",".join(prot) if prot
            else "build failed" if not st.built else f"{len(st.errors)} critic errors")
     return {"pass": ok, "why": why}
 
 
-def run_harness(work: Path, model: str, escalate: str | None, decider: str | None, overlay: bool = False) -> dict:
+def run_harness(work: Path, model: str, escalate: str | None, decider: str | None, overlay: bool = False,
+                refine: bool = False) -> dict:
+    if model == "none":           # no model: build, then edaroute refine alone
+        rec = fix(work / "description.yaml", work / ".fix", max_steps=0, log_path=work / "events.jsonl", refine=True)
+        return {"outcome": rec["outcome"], "steps": 0, "usage": {}, "refine": rec.get("refined")}
     register_tier(model)
     if escalate:
         register_tier(escalate)
@@ -90,14 +102,15 @@ def run_harness(work: Path, model: str, escalate: str | None, decider: str | Non
         pol = tiers.Policy(mode=mode, ladder=(model, escalate), decider=decider or "d1-local")
     else:
         pol = tiers.Policy(mode=f"always:{model}")
-    rec = fix(work / "description.yaml", work / ".fix", policy=pol, log_path=work / "events.jsonl", overlay=overlay)
+    rec = fix(work / "description.yaml", work / ".fix", policy=pol, log_path=work / "events.jsonl", overlay=overlay,
+              refine=refine)
     if rec["outcome"] == "ask_person":
         (work / "ASK_PERSON.txt").write_text(str(rec["question"]) + "\n")
     usage = dict(rec["usage"])
     if pol.decider_usage:
         usage["decider"] = pol.decider_usage
     return {"outcome": rec["outcome"], "steps": rec["steps"], "usage": usage,
-            "escalations": sum(1 for p in pol.log if "escalate_to" in p)}
+            "escalations": sum(1 for p in pol.log if "escalate_to" in p), "refine": rec.get("refined")}
 
 
 def pi_agent_dir(model: str) -> Path:
@@ -122,7 +135,7 @@ def overlay_file(model: str, surface: str) -> Path | None:
     return f if f.exists() else None
 
 
-def run_pi(work: Path, model: str, raw: bool, timeout: float, overlay: bool = False) -> dict:
+def run_pi(work: Path, model: str, raw: bool, timeout: float, overlay: bool = False, refine: bool = False) -> dict:
     sys.path.insert(0, str(EDAAGENT / "eval"))
     import pi_events
     env = dict(os.environ, PI_CODING_AGENT_DIR=str(pi_agent_dir(model)), EDAAGENT_MAX_TURNS="16",
@@ -131,11 +144,12 @@ def run_pi(work: Path, model: str, raw: bool, timeout: float, overlay: bool = Fa
            "--model", MODELS["chat"][model]["model"], "--thinking", "off"]
     if raw:
         cmd += ["--skill", str(ea_config.EDALOOP_REPO / "src/edaloop/agent"), "--tools", "read,bash,edit,write"]
-        prompt = PI_RAW_PROMPT
+        prompt = PI_RAW_PROMPT + (REFINE_HINT if refine else "")
     else:
-        cmd += ["-e", str(EDAAGENT / "pi/edaagent"), "--tools", "eda_status,eda_change,eda_revert,eda_ask_person,eda_finish",
-                "--system-prompt", str(EDAAGENT / "prompts/pi_system.md")]
-        prompt = "Fix this board's placement."
+        tools = "eda_status,eda_change,eda_revert,eda_ask_person,eda_finish" + (",eda_refine" if refine else "")
+        cmd += ["-e", str(EDAAGENT / "pi/edaagent")] + (["-e", str(EDAAGENT / "pi/edaagent-refine")] if refine else [])
+        cmd += ["--tools", tools, "--system-prompt", str(EDAAGENT / "prompts/pi_system.md")]
+        prompt = "Fix this board's placement." + (" If critic errors remain that no layout change clears, try eda_refine." if refine else "")
     ov = overlay_file(model, "pi") if overlay else None
     if ov:
         cmd += ["--append-system-prompt", str(ov)]
@@ -154,7 +168,7 @@ def run_pi(work: Path, model: str, raw: bool, timeout: float, overlay: bool = Fa
 
 def one(track: str, model: str, task: dict, args) -> dict:
     tag = args.tag or time.strftime("%Y%m%d")
-    work = ROOT / "work" / track / (model + ("+overlay" if args.overlay else "")) / task["id"]
+    work = ROOT / "work" / track / (model + ("+overlay" if args.overlay else "") + ("+refine" if args.refine else "")) / task["id"]
     shutil.rmtree(work, ignore_errors=True)
     work.mkdir(parents=True)
     shutil.copy(ROOT / "tasks" / task["id"] / "description.yaml", work / "description.yaml")
@@ -163,15 +177,17 @@ def one(track: str, model: str, task: dict, args) -> dict:
     t0 = time.time()
     try:
         if track == "harness":
-            r = run_harness(work, model, args.escalate, args.decider, args.overlay)
+            r = run_harness(work, model, args.escalate, args.decider, args.overlay, args.refine)
         else:
-            r = run_pi(work, model, raw=track == "agent-raw", timeout=args.timeout, overlay=args.overlay)
+            r = run_pi(work, model, raw=track == "agent-raw", timeout=args.timeout, overlay=args.overlay, refine=args.refine)
     except Exception as e:
         r = {"outcome": f"crash: {type(e).__name__}: {e}"[:300]}
     r["seconds"] = round(time.time() - t0, 1)
     r.update(score(task, work))
     system = (model + (f"+esc:{args.escalate}" if args.escalate else "") + (f"+{args.decider}" if args.decider else "")
-              + ("+overlay" if args.overlay else ""))
+              + ("+overlay" if args.overlay else "") + ("+refine" if args.refine and model != "none" else ""))
+    if model == "none":
+        system = "refine-only"
     r.update({"track": track, "system": system, "task": task["id"], "family": task["family"], "split": task["split"],
               "tag": tag, "pins": {"edaloop": PINS["edaloop"]["commit"][:9]}})
     return r
@@ -215,6 +231,7 @@ def main(argv=None):
     r.add_argument("--workers", type=int, default=4)
     r.add_argument("--timeout", type=float, default=600)
     r.add_argument("--tag", default=None)
+    r.add_argument("--refine", action="store_true", help="edaroute refine after the description loop (harness), or the eda_refine tool (agent tracks); --model none runs refine alone")
     r.add_argument("--overlay", action="store_true", help="append the model's prompt overlay (edaagent/prompts/overlays)")
     r.add_argument("--only", default="", help="comma list of task ids, families, boards or id prefixes")
     rep = sub.add_parser("report")

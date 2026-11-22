@@ -12,6 +12,10 @@ run leaves behind, never by a judge:
 A person owns parts, nets, the RF chain, outline, stackup, requirements, waivers and rails
 (`edaagent.description.PROTECTED`).
 
+A run can also leave a refined board in `refined/`, from edaroute's `refine`. The scorer checks it against a fresh
+build of the final description. It passes only if it joins the same pads (`edaloop compare`), the critic reports no
+errors on it, and KiCad's DRC with zones refilled finds no violation type more often than on the fresh build.
+
 ## Tracks
 
 | Track | What runs | What it measures |
@@ -21,6 +25,7 @@ A person owns parts, nets, the RF chain, outline, stackup, requirements, waivers
 | `agent-eda` | pi with the edaagent extension: typed `eda_*` tools and skill cards that arrive with the findings | Tool-using agency with a narrow tool surface |
 | `agent-raw` | pi with bash, read, edit and write, plus edaloop's own SKILL.md | What a free-running coding agent does with the raw tools |
 | `decision` | System One decision models on 49 labelled cases | Triage: which kind of fix is needed, and whether a person must decide |
+| any track + `--refine` | The above, plus edaroute's `refine` on the placed board: the harness runs it when critic errors remain, and the pi tracks get an `eda_refine` tool or the command. `--model none` runs `refine` alone. | Whether a system can move individual parts, which description edits can't |
 
 ## Tasks
 
@@ -42,7 +47,8 @@ archive tasks use real boards:
 - **LoRa breakout** (Adafruit, 18 parts) and **QT Py ESP32 Pico** (Adafruit, 42 parts): injected rotation and combo faults.
 - **LNA915** (Great Scott Gadgets, 25 parts): `edaloop describe` leaves 10 load currents `REQUIRED`, a real ask task.
 - **Operacake** (Great Scott Gadgets, 152 parts): the released placement, as described, already fails the critic on the
-  C9 RF net. Nobody has shown it can be fixed with layout options alone, so it is a **frontier** task.
+  C9 RF net. No description edit has fixed it. edaroute's `refine` clears it in seconds by moving C9 and U2, so the
+  task now separates systems that can move parts from those that can't.
 
 The board files are fetched by `edaloop eval` at the commits pinned in edaloop's `evaluation/samples.yaml`. Adafruit's
 are CC BY-SA 3.0, and the others carry their repositories' licences. Each archive task ships the board's own footprints,
@@ -81,6 +87,14 @@ uv venv .venv && uv pip install -e .
 ```
 
 ```bash
+.venv/bin/edabench run --track harness --model lfm3 --refine --split all
+```
+
+```bash
+.venv/bin/edabench run --track harness --model none --split all
+```
+
+```bash
 .venv/bin/python tools/freeze_tasks.py && .venv/bin/edabench report
 ```
 
@@ -95,10 +109,13 @@ a track that uses an off-site model.
 - edaloop at the commit in `pins.json`, with KiCad 10 (`kicad-cli`).
 - edaagent at `../edaagent` (commit in `pins.json`; not yet public), which supplies the harness, the pi extension and the skill cards. The decision track needs only `edaagent.tiers`.
 - pi 1.0.2 for the agent tracks.
+- edaroute at `../edaroute` (`refine`) for `--refine`, with edaloop's source on PYTHONPATH, which edaagent sets.
 - The local endpoints in `models.json` (halo: gufo LFM3 with the constraint fix, Loom Inkling), or OpenRouter with
   `OPENROUTER_API_KEY` set.
 
 ## Results
 
 `results/runs/` holds benchmark runs and `results/imported/` holds the edaagent eval runs that seeded the splits.
-`RESULTS.md` has the first leaderboard.
+`RESULTS.md` has the leaderboard.
+`ISSUES.md` records problems in edaloop and edaroute found while building and running the benchmark, each with a
+reproduction.
