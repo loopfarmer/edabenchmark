@@ -3,7 +3,8 @@
   "edaloop": {
    "repo": "loopfarmer/edaloop",
    "commit": "8f53d6f31759dd4d2dac74d8d00b0dd78e004cc1",
-   "testbenches": "edaloop/testbenches/*.yaml"
+   "testbenches": "edaloop/testbenches/*.yaml",
+   "local_patch": "the runs on 2026-11-22 used 8f53d6f plus an uncommitted debug patch in the local clone: boardgen.py called kicad_ops_dbg.py, a copy of kicad_ops.py that prints NOTPLACED/REACHED/BOX/SPAN lines to stderr, and wrote each build spec to /tmp/spec_copy.json. Placement, critic and DRC behaviour are unchanged; build output isn't."
   },
   "kicad_cli": "10.0.5",
   "pi": "@earendil-works/pi-coding-agent 1.0.2",
@@ -113,8 +114,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "95f23f8d1c9475e0",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 13,
+   "systems_run": 14
   },
   {
    "id": "cband_element__ask_rot__0",
@@ -128,8 +129,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "83ebce7dc85ad041",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 12,
+   "systems_run": 14
   },
   {
    "id": "cband_element__axis__0",
@@ -142,8 +143,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "4be29c19dc6fcea3",
-   "systems_passed": 9,
-   "systems_run": 12
+   "systems_passed": 12,
+   "systems_run": 19
   },
   {
    "id": "cband_element__axis_rot__0",
@@ -157,8 +158,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "e91f6abc48f9fb71",
-   "systems_passed": 6,
-   "systems_run": 12
+   "systems_passed": 10,
+   "systems_run": 19
   },
   {
    "id": "cband_element__combo__0",
@@ -172,8 +173,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "a393c0292594720e",
-   "systems_passed": 5,
-   "systems_run": 8
+   "systems_passed": 10,
+   "systems_run": 14
   },
   {
    "id": "cband_element__gap__0",
@@ -186,8 +187,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "36ea2b06c36c7a52",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 11,
+   "systems_run": 14
   },
   {
    "id": "cband_element__line__0",
@@ -200,8 +201,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "8ff635e15e8f465f",
-   "systems_passed": 6,
-   "systems_run": 8
+   "systems_passed": 10,
+   "systems_run": 14
   },
   {
    "id": "cband_element__rot2__0",
@@ -215,8 +216,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "c5074a4eb42dbc5c",
-   "systems_passed": 11,
-   "systems_run": 12
+   "systems_passed": 17,
+   "systems_run": 19
   },
   {
    "id": "cband_element__rot__0",
@@ -229,8 +230,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "dad1ee5d80cae7e1",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 12,
+   "systems_run": 14
   },
   {
    "id": "cband_element__rot__1",
@@ -243,8 +244,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "19afe84de961fd65",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 12,
+   "systems_run": 14
   },
   {
    "id": "cband_element__rot__2",
@@ -257,8 +258,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "60d3ed109575c4f7",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 12,
+   "systems_run": 14
   },
   {
    "id": "cband_element__triple__0",
@@ -273,8 +274,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "2ac7d91151e7ad45",
-   "systems_passed": 11,
-   "systems_run": 12
+   "systems_passed": 15,
+   "systems_run": 19
   },
   {
    "id": "four_channel_demo__ask__0",
@@ -287,8 +288,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "424e549d0f4898cf",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 13,
+   "systems_run": 14
   },
   {
    "id": "four_channel_demo__ask_rot__0",
@@ -302,8 +303,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "d6303e042e7e38a6",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 11,
+   "systems_run": 14
   },
   {
    "id": "four_channel_demo__combo__0",
@@ -317,8 +318,8 @@
    "parts": null,
    "split": "smoke",
    "sha": "ba6e20b7cc6eb7e7",
-   "systems_passed": 8,
-   "systems_run": 8
+   "systems_passed": 14,
+   "systems_run": 14
   },
   {
    "id": "four_channel_demo__rot2__0",
@@ -332,8 +333,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "da21761fd17a6ab9",
-   "systems_passed": 11,
-   "systems_run": 12
+   "systems_passed": 17,
+   "systems_run": 19
   },
   {
    "id": "four_channel_demo__rot__0",
@@ -346,8 +347,8 @@
    "parts": null,
    "split": "smoke",
    "sha": "44dddf813d9ca555",
-   "systems_passed": 8,
-   "systems_run": 8
+   "systems_passed": 14,
+   "systems_run": 14
   },
   {
    "id": "four_channel_demo__rot__1",
@@ -358,10 +359,10 @@
     "layout.rotation.C2=180"
    ],
    "parts": null,
-   "split": "smoke",
+   "split": "discriminating",
    "sha": "183b9f9840d77815",
-   "systems_passed": 8,
-   "systems_run": 8
+   "systems_passed": 13,
+   "systems_run": 14
   },
   {
    "id": "four_channel_demo__rot__2",
@@ -372,10 +373,10 @@
     "layout.rotation.C6=180"
    ],
    "parts": null,
-   "split": "discriminating",
+   "split": "smoke",
    "sha": "5f7e648db926d42e",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 14,
+   "systems_run": 14
   },
   {
    "id": "four_channel_demo__triple__0",
@@ -388,10 +389,10 @@
     "layout.gap_mm=4.5"
    ],
    "parts": null,
-   "split": "smoke",
+   "split": "discriminating",
    "sha": "bcb2489479fa35b4",
-   "systems_passed": 12,
-   "systems_run": 12
+   "systems_passed": 18,
+   "systems_run": 19
   },
   {
    "id": "gain_block_demo__ask__0",
@@ -404,8 +405,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "f85db9eca0fb3e39",
-   "systems_passed": 7,
-   "systems_run": 9
+   "systems_passed": 13,
+   "systems_run": 15
   },
   {
    "id": "gain_block_demo__ask_rot__0",
@@ -419,8 +420,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "04d9a9981ae2f918",
-   "systems_passed": 7,
-   "systems_run": 9
+   "systems_passed": 13,
+   "systems_run": 15
   },
   {
    "id": "gain_block_demo__axis__0",
@@ -433,8 +434,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "d5ea195575510f9a",
-   "systems_passed": 9,
-   "systems_run": 12
+   "systems_passed": 13,
+   "systems_run": 19
   },
   {
    "id": "gain_block_demo__axis_rot__0",
@@ -448,8 +449,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "38b176ccb26765d9",
-   "systems_passed": 5,
-   "systems_run": 12
+   "systems_passed": 7,
+   "systems_run": 19
   },
   {
    "id": "gain_block_demo__combo__0",
@@ -463,8 +464,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "2756f722a6865d44",
-   "systems_passed": 5,
-   "systems_run": 9
+   "systems_passed": 8,
+   "systems_run": 15
   },
   {
    "id": "gain_block_demo__gap__0",
@@ -477,8 +478,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "069c04dbf2191ff5",
-   "systems_passed": 7,
-   "systems_run": 9
+   "systems_passed": 11,
+   "systems_run": 15
   },
   {
    "id": "gain_block_demo__line__0",
@@ -491,8 +492,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "f17647be7553132a",
-   "systems_passed": 6,
-   "systems_run": 9
+   "systems_passed": 10,
+   "systems_run": 15
   },
   {
    "id": "gain_block_demo__rot2__0",
@@ -506,8 +507,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "8e378dad8e6a68b7",
-   "systems_passed": 11,
-   "systems_run": 12
+   "systems_passed": 16,
+   "systems_run": 19
   },
   {
    "id": "gain_block_demo__rot__0",
@@ -520,8 +521,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "fd72fc9aef88499d",
-   "systems_passed": 7,
-   "systems_run": 9
+   "systems_passed": 13,
+   "systems_run": 15
   },
   {
    "id": "gain_block_demo__rot__1",
@@ -534,8 +535,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "3a9e13f76a5a5c2c",
-   "systems_passed": 6,
-   "systems_run": 9
+   "systems_passed": 12,
+   "systems_run": 15
   },
   {
    "id": "gain_block_demo__rot__2",
@@ -548,8 +549,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "9ea631489cef33e6",
-   "systems_passed": 8,
-   "systems_run": 9
+   "systems_passed": 14,
+   "systems_run": 15
   },
   {
    "id": "gain_block_demo__triple__0",
@@ -564,8 +565,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "a517ea8b889415c4",
-   "systems_passed": 10,
-   "systems_run": 12
+   "systems_passed": 14,
+   "systems_run": 19
   },
   {
    "id": "lband_element__ask__0",
@@ -578,8 +579,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "b7d5cb0d24a25b78",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 12,
+   "systems_run": 14
   },
   {
    "id": "lband_element__ask_rot__0",
@@ -593,8 +594,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "63f76a2eb8b964e2",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 12,
+   "systems_run": 14
   },
   {
    "id": "lband_element__axis__0",
@@ -607,8 +608,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "995372bbe4e27e44",
-   "systems_passed": 9,
-   "systems_run": 12
+   "systems_passed": 13,
+   "systems_run": 19
   },
   {
    "id": "lband_element__axis_rot__0",
@@ -622,8 +623,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "0ce697e5800ffb6d",
-   "systems_passed": 4,
-   "systems_run": 12
+   "systems_passed": 9,
+   "systems_run": 19
   },
   {
    "id": "lband_element__combo__0",
@@ -637,8 +638,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "b78411aade412569",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 12,
+   "systems_run": 14
   },
   {
    "id": "lband_element__gap__0",
@@ -651,8 +652,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "ff2e1c56b86d74f9",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 12,
+   "systems_run": 14
   },
   {
    "id": "lband_element__line__0",
@@ -665,8 +666,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "eb6556fa835a924c",
-   "systems_passed": 7,
-   "systems_run": 8
+   "systems_passed": 10,
+   "systems_run": 14
   },
   {
    "id": "lband_element__rot2__0",
@@ -678,10 +679,10 @@
     "layout.rotation.FL3=90"
    ],
    "parts": null,
-   "split": "smoke",
+   "split": "discriminating",
    "sha": "1fb6141d53062025",
-   "systems_passed": 12,
-   "systems_run": 12
+   "systems_passed": 18,
+   "systems_run": 19
   },
   {
    "id": "lband_element__rot__0",
@@ -694,8 +695,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "6ef48c5dc7c1f5a8",
-   "systems_passed": 8,
-   "systems_run": 9
+   "systems_passed": 13,
+   "systems_run": 15
   },
   {
    "id": "lband_element__rot__1",
@@ -708,8 +709,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "4b3e4db4e07bc4d1",
-   "systems_passed": 8,
-   "systems_run": 9
+   "systems_passed": 14,
+   "systems_run": 15
   },
   {
    "id": "lband_element__rot__2",
@@ -722,8 +723,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "ea232808301622ea",
-   "systems_passed": 8,
-   "systems_run": 9
+   "systems_passed": 13,
+   "systems_run": 15
   },
   {
    "id": "lband_element__triple__0",
@@ -738,8 +739,8 @@
    "parts": null,
    "split": "discriminating",
    "sha": "241171b414a79346",
-   "systems_passed": 11,
-   "systems_run": 12
+   "systems_passed": 14,
+   "systems_run": 19
   }
  ]
 }

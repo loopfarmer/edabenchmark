@@ -7,6 +7,7 @@ Arm names map to (track, system):
   driver:mode=d1+signals,decider=D,...  -> harness, M+esc:E+D
   driver:...,person=0                   -> harness, ...+noperson (the model, not a rule, decides to ask)
   pi-eda:model=M / pi-raw:model=M       -> agent-eda / agent-raw, M
+  ...,overlay=1                         -> ...+overlay (a per-model prompt patch from edaagent prompts/overlays)
 """
 import json
 import sys
@@ -20,7 +21,8 @@ def system_of(arm: str) -> tuple[str, str]:
     kind, _, rest = arm.partition(":")
     o = dict(kv.split("=", 1) for kv in rest.split(",") if "=" in kv)
     if kind in ("pi-eda", "pi-raw"):
-        return ("agent-eda" if kind == "pi-eda" else "agent-raw"), NAMES.get(o.get("model", "lfm3"), o.get("model"))
+        s = NAMES.get(o.get("model", "lfm3"), o.get("model")) + ("+overlay" if o.get("overlay") == "1" else "")
+        return ("agent-eda" if kind == "pi-eda" else "agent-raw"), s
     mode = o.get("mode", "never")
     ladder = [NAMES.get(x, x) for x in o.get("ladder", "lfm3").split("+")]
     if mode.startswith("always:"):
@@ -31,6 +33,8 @@ def system_of(arm: str) -> tuple[str, str]:
         s = f"{ladder[0]}+esc:{ladder[-1]}" + (f"+{o.get('decider', 'd1-local')}" if mode.startswith("d1") else "")
     if o.get("person") == "0":
         s += "+noperson"
+    if o.get("overlay") == "1":
+        s += "+overlay"
     return "harness", s
 
 
