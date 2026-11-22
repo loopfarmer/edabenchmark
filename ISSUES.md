@@ -9,23 +9,30 @@ can retire the workaround.
 
 ## edaloop
 
-### E1. A failed build prints debug output, and its reason line comes out garbled ([loopfarmer/edaloop#43](https://github.com/loopfarmer/edaloop/issues/43))
+### E1. A failed build's reason line is KiCad's wx assert, not the error ([loopfarmer/edaloop#43](https://github.com/loopfarmer/edaloop/issues/43))
 
 ```bash
 edaloop build tasks/gain_block_demo__gap__0/description.yaml -o /tmp/ov
 ```
 
-- **Leftover debug prints.** The build prints 15 `BOX <ref> x0 y0 x1 y1` lines and a `SPAN (...)` line before the real
-  reason.
-- **Garbled reason line.** The first line reads `edaloop: placement failed: .14`.
-- **wx noise.** On other failures KiCad's Python adds `assert "traits" failed in Get(): create wxApp before calling
-  this` to the reason.
-- **Effect.** An agent reading the output takes the noise for the error.
-- **Workaround.** edaagent filters these lines (`eda._NOISE`), which is fragile.
+On a clean checkout of 8f53d6f the build exits 2 and prints:
+
+```
+edaloop: placement failed: ./src/common/stdpbase.cpp(59): assert ""traits"" failed in Get(): create wxApp before calling this
+parts span x 0.90..69.24, y 4.32..14.49, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square
+```
+
+- **The reason line is KiCad's noise.** "placement failed:" is followed by a wx assert, and the real reason, the
+  overflow, is on the next line.
+- **Effect.** Anyone reading the first line takes the assert for the error.
+- **Workaround.** edaagent drops lines containing the assert (`eda._NOISE`).
+- **Correction.** An earlier version of this entry also reported `BOX`/`SPAN` debug lines and a garbled `.14`. Those
+  came from an uncommitted debug patch in the local clone, not from edaloop (see `pins.json`), and the issue was
+  corrected the same day.
 
 ### E2. A failed build leaves a partial folder, and the next build into it refuses ([loopfarmer/edaloop#44](https://github.com/loopfarmer/edaloop/issues/44))
 
-After E1, the output folder holds `board_description.yaml`, `chains_*.yaml` and `edaloop.kicad_sym`. The next `edaloop
+After a failed build such as E1's, the output folder holds `board_description.yaml`, `chains_*.yaml` and `edaloop.kicad_sym`. The next `edaloop
 build ... -o /tmp/ov` refuses: "isn't empty. Build into a new folder, so that no routed board is overwritten".
 
 - **Why it's wrong.** The refusal protects routed boards, but this folder holds no board.
