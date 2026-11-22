@@ -1,0 +1,91 @@
+{
+ "chat": {
+  "lfm3": {
+   "base_url": "http://10.0.0.250:8800/v1",
+   "model": "lfm3",
+   "api_key_env": null,
+   "reasoning": "none",
+   "max_tokens": 400,
+   "schema": true,
+   "where": "halo: gufo LFM3-1.7B Q8_0 + DSpark (patched)"
+  },
+  "lfm3-or": {
+   "base_url": "https://openrouter.ai/api/v1",
+   "model": "liquid/lfm-3-1.7b",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "reasoning": null,
+   "extra": {
+    "reasoning": {
+     "effort": "low"
+    }
+   },
+   "max_tokens": 3000,
+   "schema": true,
+   "where": "OpenRouter"
+  },
+  "inkling-loom": {
+   "base_url": "http://10.0.0.250:8790/v1",
+   "model": "Inkling-2-Mini",
+   "api_key_env": null,
+   "reasoning": "low",
+   "max_tokens": 3000,
+   "schema": false,
+   "where": "halo: AMD Loom, Unsloth UD-Q4_K_XL + DFlash; ignores response_format",
+   "pi_compat": {
+    "supportsDeveloperRole": false,
+    "supportsMidConvoSystemMessages": false,
+    "supportsStore": false,
+    "supportsStrictMode": false,
+    "supportsUsageInStreaming": false
+   }
+  },
+  "inkling-or": {
+   "base_url": "https://openrouter.ai/api/v1",
+   "model": "thinkingmachines/inkling-2-mini",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "reasoning": null,
+   "extra": {
+    "reasoning": {
+     "effort": "low"
+    }
+   },
+   "max_tokens": 3000,
+   "schema": true,
+   "where": "OpenRouter"
+  },
+  "ds41-1017": {
+   "base_url": "https://openrouter.ai/api/v1",
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "reasoning": null,
+   "extra": {
+    "reasoning": {
+     "effort": "low"
+    }
+   },
+   "max_tokens": 3000,
+   "schema": true,
+   "where": "OpenRouter"
+  }
+ },
+ "decision": {
+  "d1-local": {
+   "url": "http://10.0.0.250:8800/v1/systemone",
+   "model": null,
+   "api_key_env": null,
+   "where": "halo: d1-2B"
+  },
+  "d1-ultra": {
+   "url": "https://openrouter.ai/api/v1/systemone",
+   "model": "liquid/d1-ultra",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "where": "OpenRouter Decisions API; Liquid may retain prompts"
+  },
+  "gemini-decision": {
+   "url": "https://openrouter.ai/api/v1/systemone",
+   "model": "google/gemini-decision-1",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "where": "OpenRouter Decisions API"
+  }
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "id": "lband_element__triple__0",
+ "board": "lband_element",
+ "family": "triple",
+ "faults": [
+  "layout.rotation.U1=90",
+  "layout.rotation.FL3=90",
+  "layout.gap_mm=7.5"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "parts span x 5.84..24.08, y 0.90..119.16, outside the 26 x 66 mm outline with a 0.5 mm margin, with U2 set square"
+ }
+}

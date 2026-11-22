@@ -1,0 +1,28 @@
+{
+ "id": "archive-operacake__frontier__0",
+ "board": "archive-operacake",
+ "family": "frontier",
+ "faults": [
+  "the released placement, as described"
+ ],
+ "expect": "clean",
+ "source": "edaloop evaluation archive",
+ "licence": "see the HackRF repository licence (Great Scott Gadgets)",
+ "parts": 152,
+ "initial": {
+  "built": true,
+  "critic_ran": true,
+  "errors": [
+   {
+    "id": "placement:rf:Net-(C9-Pad2):over_floor",
+    "message": "Net-(C9-Pad2): shortest path on F.Cu is about 3.20 mm, 31% over its floor of 2.45 mm (other pads are in the way: it bends 4 time(s))"
+   }
+  ],
+  "warnings": [
+   "placement:escape:PA2.1",
+   "placement:escape:PA4.1",
+   "placement:escape:PB0.1"
+  ],
+  "cost": 20.428
+ }
+}

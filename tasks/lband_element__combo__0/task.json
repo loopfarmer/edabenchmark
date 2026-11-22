@@ -1,0 +1,14 @@
+{
+ "id": "lband_element__combo__0",
+ "board": "lband_element",
+ "family": "combo",
+ "faults": [
+  "layout.rotation.U1=90",
+  "layout.gap_mm=7.5 (was 1.0)"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "build: no land pattern named RFLib_FP was found in --footprints, so edaloop's stand-ins were used for FL1 (RFLib_FP:LFCN_FV1206), FL2 (RFLib_FP:LFCN_FV1206), FL3 (RFLib_FP:LFCN_FV1206), U1 (RFLib_FP:RLM_TT1224). Give the real library with --footprints before building a board to fabricate | parts span x 5.84..24.08, y 0.90..119.16, outside the 26 x 66 mm outline with a 0.5 mm margin, with U2 set square"
+ }
+}

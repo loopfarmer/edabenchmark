@@ -1,0 +1,13 @@
+{
+ "id": "gain_block_demo__line__0",
+ "board": "gain_block_demo",
+ "family": "line",
+ "faults": [
+  "layout.line=1.0 (was 12.0)"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "parts span x 0.90..33.24, y -4.69..3.50, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square"
+ }
+}

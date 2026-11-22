@@ -1,0 +1,25 @@
+{
+ "id": "cband_element__rot__0",
+ "board": "cband_element",
+ "family": "rot",
+ "faults": [
+  "layout.rotation.C1=180"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": true,
+  "critic_ran": true,
+  "errors": [
+   {
+    "id": "placement:rf:LNA1IN:over_floor",
+    "message": "LNA1IN: shortest path on F.Cu is about 2.66 mm, 27% over its floor of 2.10 mm (other pads are in the way: it bends 4 time(s))"
+   },
+   {
+    "id": "placement:rf:LIM:over_floor",
+    "message": "LIM: shortest path on F.Cu is about 3.75 mm, 12% over its floor of 3.35 mm (other pads are in the way: it bends 2 time(s))"
+   }
+  ],
+  "warnings": [],
+  "cost": 0.683
+ }
+}

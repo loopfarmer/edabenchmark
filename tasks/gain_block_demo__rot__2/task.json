@@ -1,0 +1,25 @@
+{
+ "id": "gain_block_demo__rot__2",
+ "board": "gain_block_demo",
+ "family": "rot",
+ "faults": [
+  "layout.rotation.U2=90"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": true,
+  "critic_ran": true,
+  "errors": [
+   {
+    "id": "placement:rf:LNA2IN:over_floor",
+    "message": "LNA2IN: shortest path on F.Cu is about 3.78 mm, 28% over its floor of 2.95 mm (other pads are in the way: it bends 2 time(s))"
+   },
+   {
+    "id": "placement:rf:LNA2OUT:over_floor",
+    "message": "LNA2OUT: shortest path on F.Cu is about 6.03 mm, 22% over its floor of 4.95 mm (other pads are in the way: it bends 3 time(s))"
+   }
+  ],
+  "warnings": [],
+  "cost": 1.514
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "lband_element__rot__1",
+ "board": "lband_element",
+ "family": "rot",
+ "faults": [
+  "layout.rotation.FL3=90"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": true,
+  "critic_ran": true,
+  "errors": [
+   {
+    "id": "placement:rf:LP2OUT:over_floor",
+    "message": "LP2OUT: shortest path on F.Cu is about 7.43 mm, 29% over its floor of 5.75 mm (other pads are in the way: it bends 4 time(s))"
+   },
+   {
+    "id": "placement:rf:LP1OUT:over_floor",
+    "message": "LP1OUT: shortest path on F.Cu is about 7.45 mm, 29% over its floor of 5.80 mm (other pads are in the way: it bends 3 time(s))"
+   }
+  ],
+  "warnings": [],
+  "cost": 2.76
+ }
+}

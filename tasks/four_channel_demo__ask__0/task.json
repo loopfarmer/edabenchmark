@@ -1,0 +1,13 @@
+{
+ "id": "four_channel_demo__ask__0",
+ "board": "four_channel_demo",
+ "family": "ask",
+ "faults": [
+  "project.rails[0].loads.L1.2=REQUIRED"
+ ],
+ "expect": "ask",
+ "initial": {
+  "built": false,
+  "build_error": "edaloop: the description still needs these currents, in amps: project.rails: VDD load at L1.2"
+ }
+}

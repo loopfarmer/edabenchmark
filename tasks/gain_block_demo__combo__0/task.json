@@ -1,0 +1,14 @@
+{
+ "id": "gain_block_demo__combo__0",
+ "board": "gain_block_demo",
+ "family": "combo",
+ "faults": [
+  "layout.rotation.C3=180",
+  "layout.gap_mm=4.5 (was 0.5)"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "parts span x 0.90..69.24, y 4.32..14.49, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square"
+ }
+}

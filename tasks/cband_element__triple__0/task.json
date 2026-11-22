@@ -1,0 +1,15 @@
+{
+ "id": "cband_element__triple__0",
+ "board": "cband_element",
+ "family": "triple",
+ "faults": [
+  "layout.rotation.C1=180",
+  "layout.rotation.FL2=180",
+  "layout.gap_mm=2.1"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "parts span x 0.90..92.80, y 2.54..19.55, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square"
+ }
+}

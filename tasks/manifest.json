@@ -1,0 +1,741 @@
+{
+ "pins": {
+  "edaloop": {
+   "repo": "loopfarmer/edaloop",
+   "commit": "8f53d6f31759dd4d2dac74d8d00b0dd78e004cc1",
+   "testbenches": "edaloop/testbenches/*.yaml"
+  },
+  "kicad_cli": "10.0.5",
+  "pi": "@earendil-works/pi-coding-agent 1.0.2",
+  "edaagent": "~/edaagent (uncommitted working tree, 2026-11-22)",
+  "gufo_lfm3": "gufo 0.34.0 + lfm3 extension dspark branch with the constraint fix in runner.cpp (local tree ~/cc/lfm3-gufo-extension at bebb2ee + uncommitted patch); without the fix, JSON-schema requests 500 under concurrency",
+  "note": "Scores are only comparable across runs with the same pins. Rebuild tasks/ with tools/freeze_tasks.py after changing edaloop."
+ },
+ "tasks": [
+  {
+   "id": "archive-lna915__ask_real__0",
+   "board": "archive-lna915",
+   "family": "ask_real",
+   "expect": "ask",
+   "faults": [
+    "REQUIRED values from edaloop describe"
+   ],
+   "parts": 25,
+   "split": "smoke",
+   "sha": "38671ec7078dcd84",
+   "systems_passed": 4,
+   "systems_run": 4
+  },
+  {
+   "id": "archive-lora__combo__0",
+   "board": "archive-lora",
+   "family": "combo",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U1=90",
+    "layout.gap_mm=3.0"
+   ],
+   "parts": 18,
+   "split": "smoke",
+   "sha": "4d0fdb084043b761",
+   "systems_passed": 4,
+   "systems_run": 4
+  },
+  {
+   "id": "archive-lora__rot__0",
+   "board": "archive-lora",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U1=90"
+   ],
+   "parts": 18,
+   "split": "smoke",
+   "sha": "2338a5aca9184853",
+   "systems_passed": 4,
+   "systems_run": 4
+  },
+  {
+   "id": "archive-operacake__frontier__0",
+   "board": "archive-operacake",
+   "family": "frontier",
+   "expect": "clean",
+   "faults": [
+    "the released placement, as described"
+   ],
+   "parts": 152,
+   "split": "frontier",
+   "sha": "25f737857eda3026",
+   "systems_passed": 0,
+   "systems_run": 4
+  },
+  {
+   "id": "archive-qtpy__combo__0",
+   "board": "archive-qtpy",
+   "family": "combo",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.L2=180",
+    "layout.gap_mm=3.0"
+   ],
+   "parts": 42,
+   "split": "smoke",
+   "sha": "04ebd9790078ea89",
+   "systems_passed": 4,
+   "systems_run": 4
+  },
+  {
+   "id": "archive-qtpy__rot__0",
+   "board": "archive-qtpy",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.L2=180"
+   ],
+   "parts": 42,
+   "split": "smoke",
+   "sha": "5453c0c97e37c315",
+   "systems_passed": 4,
+   "systems_run": 4
+  },
+  {
+   "id": "cband_element__ask__0",
+   "board": "cband_element",
+   "family": "ask",
+   "expect": "ask",
+   "faults": [
+    "project.rails[0].loads.R1.1=REQUIRED"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "95f23f8d1c9475e0",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "cband_element__ask_rot__0",
+   "board": "cband_element",
+   "family": "ask_rot",
+   "expect": "ask",
+   "faults": [
+    "project.rails[0].loads.R1.1=REQUIRED",
+    "layout.rotation.C2=180"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "83ebce7dc85ad041",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "cband_element__axis__0",
+   "board": "cband_element",
+   "family": "axis",
+   "expect": "clean",
+   "faults": [
+    "layout.axis=y (was x)"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "4be29c19dc6fcea3",
+   "systems_passed": 8,
+   "systems_run": 9
+  },
+  {
+   "id": "cband_element__axis_rot__0",
+   "board": "cband_element",
+   "family": "axis_rot",
+   "expect": "clean",
+   "faults": [
+    "layout.axis=y",
+    "layout.rotation.C1=180"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "e91f6abc48f9fb71",
+   "systems_passed": 5,
+   "systems_run": 9
+  },
+  {
+   "id": "cband_element__combo__0",
+   "board": "cband_element",
+   "family": "combo",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C1=180",
+    "layout.gap_mm=2.1 (was 0.1)"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "a393c0292594720e",
+   "systems_passed": 3,
+   "systems_run": 5
+  },
+  {
+   "id": "cband_element__gap__0",
+   "board": "cband_element",
+   "family": "gap",
+   "expect": "clean",
+   "faults": [
+    "layout.gap_mm=2.1 (was 0.1)"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "36ea2b06c36c7a52",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "cband_element__line__0",
+   "board": "cband_element",
+   "family": "line",
+   "expect": "clean",
+   "faults": [
+    "layout.line=1.0 (was 10.0)"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "8ff635e15e8f465f",
+   "systems_passed": 4,
+   "systems_run": 5
+  },
+  {
+   "id": "cband_element__rot2__0",
+   "board": "cband_element",
+   "family": "rot2",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C1=180",
+    "layout.rotation.FL2=180"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "c5074a4eb42dbc5c",
+   "systems_passed": 9,
+   "systems_run": 9
+  },
+  {
+   "id": "cband_element__rot__0",
+   "board": "cband_element",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C1=180"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "dad1ee5d80cae7e1",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "cband_element__rot__1",
+   "board": "cband_element",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.FL2=180"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "19afe84de961fd65",
+   "systems_passed": 4,
+   "systems_run": 5
+  },
+  {
+   "id": "cband_element__rot__2",
+   "board": "cband_element",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C2=180"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "60d3ed109575c4f7",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "cband_element__triple__0",
+   "board": "cband_element",
+   "family": "triple",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C1=180",
+    "layout.rotation.FL2=180",
+    "layout.gap_mm=2.1"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "2ac7d91151e7ad45",
+   "systems_passed": 9,
+   "systems_run": 9
+  },
+  {
+   "id": "four_channel_demo__ask__0",
+   "board": "four_channel_demo",
+   "family": "ask",
+   "expect": "ask",
+   "faults": [
+    "project.rails[0].loads.L1.2=REQUIRED"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "424e549d0f4898cf",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "four_channel_demo__ask_rot__0",
+   "board": "four_channel_demo",
+   "family": "ask_rot",
+   "expect": "ask",
+   "faults": [
+    "project.rails[0].loads.L1.2=REQUIRED",
+    "layout.rotation.C6=180"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "d6303e042e7e38a6",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "four_channel_demo__combo__0",
+   "board": "four_channel_demo",
+   "family": "combo",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U4=90",
+    "layout.gap_mm=4.5 (was 0.5)"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "ba6e20b7cc6eb7e7",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "four_channel_demo__rot2__0",
+   "board": "four_channel_demo",
+   "family": "rot2",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U4=90",
+    "layout.rotation.C2=180"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "da21761fd17a6ab9",
+   "systems_passed": 8,
+   "systems_run": 9
+  },
+  {
+   "id": "four_channel_demo__rot__0",
+   "board": "four_channel_demo",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U4=90"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "44dddf813d9ca555",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "four_channel_demo__rot__1",
+   "board": "four_channel_demo",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C2=180"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "183b9f9840d77815",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "four_channel_demo__rot__2",
+   "board": "four_channel_demo",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C6=180"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "5f7e648db926d42e",
+   "systems_passed": 4,
+   "systems_run": 5
+  },
+  {
+   "id": "four_channel_demo__triple__0",
+   "board": "four_channel_demo",
+   "family": "triple",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U4=90",
+    "layout.rotation.C2=180",
+    "layout.gap_mm=4.5"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "bcb2489479fa35b4",
+   "systems_passed": 9,
+   "systems_run": 9
+  },
+  {
+   "id": "gain_block_demo__ask__0",
+   "board": "gain_block_demo",
+   "family": "ask",
+   "expect": "ask",
+   "faults": [
+    "project.rails[0].loads.R1.1=REQUIRED"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "f85db9eca0fb3e39",
+   "systems_passed": 5,
+   "systems_run": 6
+  },
+  {
+   "id": "gain_block_demo__ask_rot__0",
+   "board": "gain_block_demo",
+   "family": "ask_rot",
+   "expect": "ask",
+   "faults": [
+    "project.rails[0].loads.R1.1=REQUIRED",
+    "layout.rotation.U2=90"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "04d9a9981ae2f918",
+   "systems_passed": 5,
+   "systems_run": 6
+  },
+  {
+   "id": "gain_block_demo__axis__0",
+   "board": "gain_block_demo",
+   "family": "axis",
+   "expect": "clean",
+   "faults": [
+    "layout.axis=y (was x)"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "d5ea195575510f9a",
+   "systems_passed": 8,
+   "systems_run": 9
+  },
+  {
+   "id": "gain_block_demo__axis_rot__0",
+   "board": "gain_block_demo",
+   "family": "axis_rot",
+   "expect": "clean",
+   "faults": [
+    "layout.axis=y",
+    "layout.rotation.C3=180"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "38b176ccb26765d9",
+   "systems_passed": 4,
+   "systems_run": 9
+  },
+  {
+   "id": "gain_block_demo__combo__0",
+   "board": "gain_block_demo",
+   "family": "combo",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C3=180",
+    "layout.gap_mm=4.5 (was 0.5)"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "2756f722a6865d44",
+   "systems_passed": 3,
+   "systems_run": 6
+  },
+  {
+   "id": "gain_block_demo__gap__0",
+   "board": "gain_block_demo",
+   "family": "gap",
+   "expect": "clean",
+   "faults": [
+    "layout.gap_mm=4.5 (was 0.5)"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "069c04dbf2191ff5",
+   "systems_passed": 5,
+   "systems_run": 6
+  },
+  {
+   "id": "gain_block_demo__line__0",
+   "board": "gain_block_demo",
+   "family": "line",
+   "expect": "clean",
+   "faults": [
+    "layout.line=1.0 (was 12.0)"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "f17647be7553132a",
+   "systems_passed": 4,
+   "systems_run": 6
+  },
+  {
+   "id": "gain_block_demo__rot2__0",
+   "board": "gain_block_demo",
+   "family": "rot2",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C3=180",
+    "layout.rotation.C1=180"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "8e378dad8e6a68b7",
+   "systems_passed": 9,
+   "systems_run": 9
+  },
+  {
+   "id": "gain_block_demo__rot__0",
+   "board": "gain_block_demo",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C3=180"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "fd72fc9aef88499d",
+   "systems_passed": 5,
+   "systems_run": 6
+  },
+  {
+   "id": "gain_block_demo__rot__1",
+   "board": "gain_block_demo",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C1=180"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "3a9e13f76a5a5c2c",
+   "systems_passed": 3,
+   "systems_run": 6
+  },
+  {
+   "id": "gain_block_demo__rot__2",
+   "board": "gain_block_demo",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U2=90"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "9ea631489cef33e6",
+   "systems_passed": 5,
+   "systems_run": 6
+  },
+  {
+   "id": "gain_block_demo__triple__0",
+   "board": "gain_block_demo",
+   "family": "triple",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C3=180",
+    "layout.rotation.C1=180",
+    "layout.gap_mm=4.5"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "a517ea8b889415c4",
+   "systems_passed": 8,
+   "systems_run": 9
+  },
+  {
+   "id": "lband_element__ask__0",
+   "board": "lband_element",
+   "family": "ask",
+   "expect": "ask",
+   "faults": [
+    "project.rails[0].loads.R1.1=REQUIRED"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "b7d5cb0d24a25b78",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "lband_element__ask_rot__0",
+   "board": "lband_element",
+   "family": "ask_rot",
+   "expect": "ask",
+   "faults": [
+    "project.rails[0].loads.R1.1=REQUIRED",
+    "layout.rotation.C1=90"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "63f76a2eb8b964e2",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "lband_element__axis__0",
+   "board": "lband_element",
+   "family": "axis",
+   "expect": "clean",
+   "faults": [
+    "layout.axis=x (was y)"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "995372bbe4e27e44",
+   "systems_passed": 8,
+   "systems_run": 9
+  },
+  {
+   "id": "lband_element__axis_rot__0",
+   "board": "lband_element",
+   "family": "axis_rot",
+   "expect": "clean",
+   "faults": [
+    "layout.axis=x",
+    "layout.rotation.U1=90"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "0ce697e5800ffb6d",
+   "systems_passed": 3,
+   "systems_run": 9
+  },
+  {
+   "id": "lband_element__combo__0",
+   "board": "lband_element",
+   "family": "combo",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U1=90",
+    "layout.gap_mm=7.5 (was 1.0)"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "b78411aade412569",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "lband_element__gap__0",
+   "board": "lband_element",
+   "family": "gap",
+   "expect": "clean",
+   "faults": [
+    "layout.gap_mm=7.5 (was 1.0)"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "ff2e1c56b86d74f9",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "lband_element__line__0",
+   "board": "lband_element",
+   "family": "line",
+   "expect": "clean",
+   "faults": [
+    "layout.line=1.0 (was 13.0)"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "eb6556fa835a924c",
+   "systems_passed": 5,
+   "systems_run": 5
+  },
+  {
+   "id": "lband_element__rot2__0",
+   "board": "lband_element",
+   "family": "rot2",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U1=90",
+    "layout.rotation.FL3=90"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "1fb6141d53062025",
+   "systems_passed": 9,
+   "systems_run": 9
+  },
+  {
+   "id": "lband_element__rot__0",
+   "board": "lband_element",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U1=90"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "6ef48c5dc7c1f5a8",
+   "systems_passed": 5,
+   "systems_run": 6
+  },
+  {
+   "id": "lband_element__rot__1",
+   "board": "lband_element",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.FL3=90"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "4b3e4db4e07bc4d1",
+   "systems_passed": 5,
+   "systems_run": 6
+  },
+  {
+   "id": "lband_element__rot__2",
+   "board": "lband_element",
+   "family": "rot",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.C1=90"
+   ],
+   "parts": null,
+   "split": "discriminating",
+   "sha": "ea232808301622ea",
+   "systems_passed": 5,
+   "systems_run": 6
+  },
+  {
+   "id": "lband_element__triple__0",
+   "board": "lband_element",
+   "family": "triple",
+   "expect": "clean",
+   "faults": [
+    "layout.rotation.U1=90",
+    "layout.rotation.FL3=90",
+    "layout.gap_mm=7.5"
+   ],
+   "parts": null,
+   "split": "smoke",
+   "sha": "241171b414a79346",
+   "systems_passed": 9,
+   "systems_run": 9
+  }
+ ]
+}

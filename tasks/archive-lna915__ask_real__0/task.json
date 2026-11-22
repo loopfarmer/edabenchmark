@@ -1,0 +1,16 @@
+{
+ "id": "archive-lna915__ask_real__0",
+ "board": "archive-lna915",
+ "family": "ask_real",
+ "faults": [
+  "REQUIRED values from edaloop describe"
+ ],
+ "expect": "ask",
+ "source": "edaloop evaluation archive",
+ "licence": "see the HackRF repository licence (Great Scott Gadgets)",
+ "parts": 25,
+ "initial": {
+  "built": false,
+  "build_error": "edaloop: the description still needs these currents, in amps: project.rails: VCC load at L2.2; project.rails: VCC load at R1.1; project.rails: VCC load at R2.1; project.rails: VCC load at U1.1; project.rails: VCC load at U1.2; project.rails: VCC load at U2.1; project.rails: VCC load at U2.2; project.rails: VCC load at U3.1; project.rails: VCC load at U3.5; project.rails: VCC load at L4.1"
+ }
+}

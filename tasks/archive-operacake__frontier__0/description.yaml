@@ -1,0 +1,1139 @@
+name: operacake
+summary: 'Described from operacake.kicad_pcb. 1 RF path(s), the first: PA1 > C5 > U2 > C9 > U1 > C10 > U3 > C3 > PB2'
+band_mhz:
+- 1.0
+- 6000.0
+supply_v: 5.0
+stackup:
+  copper_um:
+  - 35.0
+  - 15.2
+  - 15.2
+  - 35.0
+  dielectric_mm:
+  - 0.2
+  - 1.1
+  - 0.2
+  epsilon_r: 4.5
+  loss_tangent: 0.02
+rf_line_width_mm: 0.3048
+assumed: []
+likely_rails:
+- /U1VC1
+- /U1VC2
+- /U2V1
+- /U2V2
+- /U2V3
+- /U2V4
+- /U3V1
+- /U3V2
+- /U3V3
+- /U3V4
+- VCC
+parts:
+  C1:
+    value: 100nF
+  C2:
+    value: 100nF
+  C3:
+    value: 100nF
+  C4:
+    value: 100nF
+  C5:
+    value: 100nF
+  C6:
+    value: 100nF
+  C7:
+    value: 100nF
+  C8:
+    value: 100nF
+  C9:
+    value: 100nF
+  C10:
+    value: 100nF
+  C11:
+    value: 100nF
+  C12:
+    value: 100nF
+  D1:
+    value: GSG-DIODE-TVS-BI
+  D2:
+    value: GSG-DIODE-TVS-BI
+  D3:
+    value: GSG-DIODE-TVS-BI
+  D4:
+    value: GSG-DIODE-TVS-BI
+  D5:
+    value: GSG-DIODE-TVS-BI
+  D6:
+    value: GSG-DIODE-TVS-BI
+  D7:
+    value: GSG-DIODE-TVS-BI
+  D8:
+    value: GSG-DIODE-TVS-BI
+  D9:
+    value: GSG-DIODE-TVS-BI
+  D10:
+    value: GSG-DIODE-TVS-BI
+  DA0:
+    value: LED
+  DAG1:
+    value: LED
+  DAG2:
+    value: LED
+  DAG3:
+    value: LED
+  DAG4:
+    value: LED
+  DAY1:
+    value: LED
+  DAY2:
+    value: LED
+  DAY3:
+    value: LED
+  DAY4:
+    value: LED
+  DB0:
+    value: LED
+  DBG1:
+    value: LED
+  DBG2:
+    value: LED
+  DBG3:
+    value: LED
+  DBG4:
+    value: LED
+  DBY1:
+    value: LED
+  DBY2:
+    value: LED
+  DBY3:
+    value: LED
+  DBY4:
+    value: LED
+  MH1:
+    value: MOUNTING_HOLE
+  MH2:
+    value: MOUNTING_HOLE
+  MH3:
+    value: MOUNTING_HOLE
+  MH4:
+    value: MOUNTING_HOLE
+  MH5:
+    value: MOUNTING_HOLE
+  MH6:
+    value: MOUNTING_HOLE
+  P1:
+    value: ADDRESS
+  P9:
+    value: BASEBAND
+  P20:
+    value: GPIO
+  P22:
+    value: I2S
+  P28:
+    value: SD
+  PA0:
+    value: GSG-RF-CONN
+  PA1:
+    value: GSG-RF-CONN
+  PA2:
+    value: GSG-RF-CONN
+  PA3:
+    value: GSG-RF-CONN
+  PA4:
+    value: GSG-RF-CONN
+  PB0:
+    value: GSG-RF-CONN
+  PB1:
+    value: GSG-RF-CONN
+  PB2:
+    value: GSG-RF-CONN
+  PB3:
+    value: GSG-RF-CONN
+  PB4:
+    value: GSG-RF-CONN
+  R1:
+    value: '330'
+  R2:
+    value: '330'
+  R3:
+    value: '330'
+  R4:
+    value: '330'
+  R5:
+    value: '330'
+  R6:
+    value: '330'
+  R7:
+    value: 1k8
+  R8:
+    value: 1k8
+  R9:
+    value: 10k
+  R10:
+    value: 10k
+  R11:
+    value: 10k
+  R12:
+    value: 10k
+  R13:
+    value: 10k
+  R14:
+    value: 10k
+  R15:
+    value: 10k
+  R16:
+    value: 10k
+  R17:
+    value: 10k
+  R18:
+    value: 10k
+  R19:
+    value: 10k
+  R20:
+    value: 10k
+  U1:
+    value: MASWSS0129
+  U2:
+    value: SKY13322
+  U3:
+    value: SKY13322
+  U4:
+    value: PCA9557
+  U5:
+    value: TC7MBL3245CFT
+  U6:
+    value: 74LVC1G58
+  U7:
+    value: 74LVC1G58
+  U8:
+    value: 74AHC1G08
+  U9:
+    value: 74AHC1G08
+  U10:
+    value: 74LVC1G58
+  U11:
+    value: 74LVC1G58
+  U12:
+    value: 74LVC1G58
+  U13:
+    value: 74LVC1G58
+  U14:
+    value: 74AHC1G02
+  U15:
+    value: 74AHC1G02
+  U16:
+    value: 74LVC1G19
+  J1:
+    value: CONN_02X20
+  J2:
+    value: CONN_02X20
+  C13:
+    value: 33pF
+  C14:
+    value: 33pF
+  C15:
+    value: 33pF
+  C16:
+    value: 33pF
+  C17:
+    value: 33pF
+  C18:
+    value: 33pF
+  C19:
+    value: 33pF
+  C20:
+    value: 33pF
+  C21:
+    value: 33pF
+  C22:
+    value: 33pF
+  C23:
+    value: 100nF
+  C24:
+    value: 100nF
+  C25:
+    value: 100nF
+  C26:
+    value: 100nF
+  C27:
+    value: 100nF
+  C28:
+    value: 100nF
+  C29:
+    value: 100nF
+  C30:
+    value: 100nF
+  C31:
+    value: 100nF
+  C32:
+    value: 100nF
+  C33:
+    value: 100nF
+  C34:
+    value: 100nF
+  C35:
+    value: 100nF
+  TP1:
+    value: CONN_1
+  TP2:
+    value: CONN_1
+  TP3:
+    value: CONN_1
+  TP4:
+    value: CONN_1
+  TP5:
+    value: CONN_1
+  TP6:
+    value: CONN_1
+  TP7:
+    value: CONN_1
+  TP8:
+    value: CONN_1
+  TP9:
+    value: CONN_1
+  TP10:
+    value: CONN_1
+  TP11:
+    value: CONN_1
+  TP12:
+    value: CONN_1
+  TP13:
+    value: CONN_1
+  TP14:
+    value: CONN_1
+  TP15:
+    value: CONN_1
+  TP16:
+    value: CONN_1
+  TP17:
+    value: CONN_1
+  TP18:
+    value: CONN_1
+  TP19:
+    value: CONN_1
+  TP20:
+    value: CONN_1
+  TP21:
+    value: CONN_1
+  TP22:
+    value: CONN_1
+  TP23:
+    value: CONN_1
+  TP24:
+    value: CONN_1
+  TP25:
+    value: CONN_1
+  TP26:
+    value: CONN_1
+  TP27:
+    value: CONN_1
+  TP28:
+    value: CONN_1
+  TP29:
+    value: CONN_1
+  TP30:
+    value: CONN_1
+nets:
+  Net-(C1-Pad1):
+  - C1.1
+  - D1.1
+  - U2.5
+  Net-(C1-Pad2):
+  - C1.2
+  - PA2.1
+  Net-(C2-Pad1):
+  - C2.1
+  - D2.1
+  - U2.10
+  Net-(C2-Pad2):
+  - C2.2
+  - PA4.1
+  Net-(C3-Pad1):
+  - C3.1
+  - D3.1
+  - U3.1
+  Net-(C3-Pad2):
+  - C3.2
+  - PB2.1
+  Net-(C4-Pad1):
+  - C4.1
+  - D4.1
+  - U3.6
+  Net-(C4-Pad2):
+  - C4.2
+  - PB4.1
+  Net-(C5-Pad1):
+  - C5.1
+  - D5.1
+  - U2.6
+  Net-(C5-Pad2):
+  - C5.2
+  - PA1.1
+  Net-(C6-Pad1):
+  - C6.1
+  - D6.1
+  - U2.1
+  Net-(C6-Pad2):
+  - C6.2
+  - PA3.1
+  Net-(C7-Pad1):
+  - C7.1
+  - D7.1
+  - U3.10
+  Net-(C7-Pad2):
+  - C7.2
+  - PB1.1
+  Net-(C8-Pad1):
+  - C8.1
+  - D8.1
+  - U3.5
+  Net-(C8-Pad2):
+  - C8.2
+  - PB3.1
+  Net-(C9-Pad1):
+  - C9.1
+  - U1.6
+  Net-(C9-Pad2):
+  - C9.2
+  - U2.8
+  Net-(C10-Pad1):
+  - C10.1
+  - U3.8
+  Net-(C10-Pad2):
+  - C10.2
+  - U1.4
+  Net-(C11-Pad1):
+  - C11.1
+  - D9.1
+  - U1.10
+  Net-(C11-Pad2):
+  - C11.2
+  - PA0.1
+  Net-(C12-Pad1):
+  - C12.1
+  - D10.1
+  - U1.12
+  Net-(C12-Pad2):
+  - C12.2
+  - PB0.1
+  GND:
+  - D1.2
+  - D2.2
+  - D3.2
+  - D4.2
+  - D5.2
+  - D6.2
+  - D7.2
+  - D8.2
+  - D9.2
+  - D10.2
+  - MH1.1
+  - MH2.1
+  - MH3.1
+  - MH4.1
+  - MH5.1
+  - MH6.1
+  - P9.1
+  - P9.2
+  - P9.3
+  - P9.8
+  - P9.9
+  - P9.14
+  - P9.15
+  - P9.16
+  - P20.15
+  - P20.19
+  - P22.4
+  - P22.10
+  - P22.18
+  - P28.2
+  - P28.12
+  - PA0.2
+  - PA1.2
+  - PA2.2
+  - PA3.2
+  - PA4.2
+  - PB0.2
+  - PB1.2
+  - PB2.2
+  - PB3.2
+  - PB4.2
+  - R17.2
+  - R18.2
+  - R19.2
+  - R20.2
+  - U1.0
+  - U1.1
+  - U1.2
+  - U1.5
+  - U1.8
+  - U1.9
+  - U1.11
+  - U2.0
+  - U3.0
+  - U4.8
+  - U5.10
+  - U6.2
+  - U7.2
+  - U8.3
+  - U9.3
+  - U10.2
+  - U10.3
+  - U11.2
+  - U11.3
+  - U12.2
+  - U12.3
+  - U13.2
+  - U13.3
+  - U14.3
+  - U15.3
+  - U16.2
+  - U16.3
+  - J1.1
+  - J2.1
+  - C13.2
+  - C14.2
+  - C15.1
+  - C16.1
+  - C17.1
+  - C18.1
+  - C19.2
+  - C20.2
+  - C21.1
+  - C22.1
+  - C23.1
+  - C24.1
+  - C25.1
+  - C26.1
+  - C27.1
+  - C28.1
+  - C29.1
+  - C30.1
+  - C31.1
+  - C32.1
+  - C33.1
+  - C34.1
+  - C35.1
+  - TP14.1
+  Net-(DA0-Pad1):
+  - DA0.1
+  - R5.1
+  VCC:
+  - DA0.2
+  - DB0.2
+  - P1.1
+  - P1.3
+  - P1.5
+  - P20.3
+  - P22.11
+  - P28.1
+  - R7.1
+  - R8.1
+  - R9.1
+  - R10.2
+  - R11.2
+  - R12.2
+  - R13.2
+  - R14.2
+  - R15.2
+  - R16.2
+  - U4.16
+  - U5.20
+  - U6.3
+  - U6.5
+  - U7.3
+  - U7.5
+  - U8.5
+  - U9.5
+  - U10.5
+  - U11.5
+  - U12.5
+  - U13.5
+  - U14.5
+  - U15.5
+  - U16.5
+  - J1.2
+  - C23.2
+  - C24.2
+  - C25.2
+  - C26.2
+  - C27.2
+  - C28.2
+  - C29.2
+  - C30.2
+  - C31.2
+  - C32.2
+  - C33.2
+  - C34.2
+  - C35.2
+  - TP15.1
+  Net-(DAG1-Pad1):
+  - DAG1.1
+  - DAG2.1
+  - DAG3.1
+  - DAG4.1
+  - R1.1
+  /U2V3:
+  - DAG1.2
+  - DAY1.2
+  - U2.7
+  - U14.4
+  - C13.1
+  - TP20.1
+  /U2V1:
+  - DAG2.2
+  - DAY2.2
+  - U2.4
+  - U12.4
+  - C14.1
+  - TP18.1
+  /U2V2:
+  - DAG3.2
+  - DAY3.2
+  - U2.2
+  - U10.4
+  - C15.2
+  - TP19.1
+  /U2V4:
+  - DAG4.2
+  - DAY4.2
+  - U2.9
+  - U8.4
+  - C16.2
+  - TP21.1
+  Net-(DAY1-Pad1):
+  - DAY1.1
+  - DAY2.1
+  - DAY3.1
+  - DAY4.1
+  - R2.1
+  Net-(DB0-Pad1):
+  - DB0.1
+  - R6.1
+  Net-(DBG1-Pad1):
+  - DBG1.1
+  - DBG2.1
+  - DBG3.1
+  - DBG4.1
+  - R3.1
+  /U3V4:
+  - DBG1.2
+  - DBY1.2
+  - U3.9
+  - U15.4
+  - C22.2
+  - TP25.1
+  /U3V2:
+  - DBG2.2
+  - DBY2.2
+  - U3.2
+  - U13.4
+  - C21.2
+  - TP23.1
+  /U3V1:
+  - DBG3.2
+  - DBY3.2
+  - U3.4
+  - U11.4
+  - C20.1
+  - TP22.1
+  /U3V3:
+  - DBG4.2
+  - DBY4.2
+  - U3.7
+  - U9.4
+  - C19.1
+  - TP24.1
+  Net-(DBY1-Pad1):
+  - DBY1.1
+  - DBY2.1
+  - DBY3.1
+  - DBY4.1
+  - R4.1
+  /A0:
+  - P1.2
+  - R17.1
+  - U4.3
+  - TP28.1
+  /A1:
+  - P1.4
+  - R18.1
+  - U4.4
+  - TP29.1
+  /A2:
+  - P1.6
+  - R19.1
+  - U4.5
+  - TP30.1
+  /EXT_U1CTRL:
+  - P20.5
+  - U5.6
+  - J2.6
+  - TP5.1
+  /EXT_U2CTRL0:
+  - P20.9
+  - U5.3
+  - J2.9
+  - TP2.1
+  /EXT_U2CTRL1:
+  - P20.10
+  - U5.2
+  - J2.10
+  - TP1.1
+  /EXT_U3CTRL0:
+  - P20.11
+  - U5.5
+  - J2.7
+  - TP4.1
+  /EXT_U3CTRL1:
+  - P20.12
+  - U5.4
+  - J2.8
+  - TP3.1
+  /SDA:
+  - P22.24
+  - R8.2
+  - U4.2
+  - J2.39
+  - TP26.1
+  /SCL:
+  - P22.26
+  - R7.2
+  - U4.1
+  - J2.40
+  - TP27.1
+  Net-(R1-Pad2):
+  - R1.2
+  - R4.2
+  - U6.4
+  Net-(R2-Pad2):
+  - R2.2
+  - R3.2
+  - U7.4
+  /!LED_EN:
+  - R5.2
+  - R6.2
+  - R9.2
+  - U4.6
+  - TP6.1
+  /!RESET:
+  - R10.1
+  - U4.15
+  - TP7.1
+  /!OE:
+  - R11.1
+  - U4.14
+  - U5.19
+  - TP8.1
+  /U2CTRL1:
+  - R12.1
+  - U4.13
+  - U5.18
+  - U8.1
+  - U10.6
+  - U12.1
+  - U14.1
+  - TP11.1
+  /U2CTRL0:
+  - R13.1
+  - U4.12
+  - U5.17
+  - U8.2
+  - U10.1
+  - U12.6
+  - U14.2
+  - TP10.1
+  /U3CTRL1:
+  - R14.1
+  - U4.11
+  - U5.16
+  - U9.1
+  - U11.6
+  - U13.1
+  - U15.1
+  - TP13.1
+  /U3CTRL0:
+  - R15.1
+  - U4.10
+  - U5.15
+  - U9.2
+  - U11.1
+  - U13.6
+  - U15.2
+  - TP12.1
+  /U1CTRL:
+  - R16.1
+  - U4.9
+  - U5.14
+  - U16.1
+  - TP9.1
+  /LED_EN2:
+  - R20.1
+  - U4.7
+  - U6.1
+  - U7.1
+  /U1VC1:
+  - U1.3
+  - U7.6
+  - U16.4
+  - C18.2
+  - TP16.1
+  /U1VC2:
+  - U1.7
+  - U6.6
+  - U16.6
+  - C17.2
+  - TP17.1
+open_pins:
+- J1.10
+- J1.11
+- J1.12
+- J1.13
+- J1.14
+- J1.15
+- J1.16
+- J1.17
+- J1.18
+- J1.19
+- J1.20
+- J1.21
+- J1.22
+- J1.23
+- J1.24
+- J1.25
+- J1.26
+- J1.27
+- J1.28
+- J1.29
+- J1.3
+- J1.30
+- J1.31
+- J1.32
+- J1.33
+- J1.34
+- J1.35
+- J1.36
+- J1.37
+- J1.38
+- J1.39
+- J1.4
+- J1.40
+- J1.5
+- J1.6
+- J1.7
+- J1.8
+- J1.9
+- J2.11
+- J2.12
+- J2.13
+- J2.14
+- J2.15
+- J2.16
+- J2.17
+- J2.18
+- J2.19
+- J2.2
+- J2.20
+- J2.21
+- J2.22
+- J2.23
+- J2.24
+- J2.25
+- J2.26
+- J2.27
+- J2.28
+- J2.29
+- J2.3
+- J2.30
+- J2.31
+- J2.32
+- J2.33
+- J2.34
+- J2.35
+- J2.36
+- J2.37
+- J2.38
+- J2.4
+- J2.5
+- P20.1
+- P20.13
+- P20.14
+- P20.16
+- P20.17
+- P20.18
+- P20.2
+- P20.20
+- P20.21
+- P20.22
+- P20.4
+- P20.6
+- P20.7
+- P20.8
+- P22.1
+- P22.12
+- P22.13
+- P22.14
+- P22.15
+- P22.16
+- P22.17
+- P22.19
+- P22.2
+- P22.20
+- P22.21
+- P22.22
+- P22.23
+- P22.25
+- P22.3
+- P22.5
+- P22.6
+- P22.7
+- P22.8
+- P22.9
+- P28.10
+- P28.11
+- P28.13
+- P28.14
+- P28.15
+- P28.16
+- P28.17
+- P28.18
+- P28.19
+- P28.20
+- P28.21
+- P28.22
+- P28.3
+- P28.4
+- P28.5
+- P28.6
+- P28.7
+- P28.8
+- P28.9
+- P9.10
+- P9.11
+- P9.12
+- P9.13
+- P9.4
+- P9.5
+- P9.6
+- P9.7
+- U2.3
+- U3.3
+- U5.1
+- U5.11
+- U5.12
+- U5.13
+- U5.7
+- U5.8
+- U5.9
+chain:
+- - Net-(C5-Pad2)
+  - PA1.1
+  - C5.2
+- - Net-(C5-Pad1)
+  - C5.1
+  - U2.6
+- - Net-(C9-Pad2)
+  - U2.8
+  - C9.2
+- - Net-(C9-Pad1)
+  - C9.1
+  - U1.6
+- - Net-(C10-Pad2)
+  - U1.4
+  - C10.2
+- - Net-(C10-Pad1)
+  - C10.1
+  - U3.8
+- - Net-(C3-Pad1)
+  - U3.1
+  - C3.1
+- - Net-(C3-Pad2)
+  - C3.2
+  - PB2.1
+spice:
+  models:
+    J1:
+      kind: open
+      reason: 'no DC path modelled: connector, RF filter or not fitted'
+    J2:
+      kind: open
+      reason: 'no DC path modelled: connector, RF filter or not fitted'
+  bench:
+    name: bias
+    stimulus:
+    - Vcable Net-(C3-Pad2) 0 DC 5
+    measure:
+    - .control
+    - op
+    - let i_total_ma = -i(vcable)*1000
+    - print i_total_ma
+    - quit
+    - .endc
+  expect: {}
+layout:
+  axis: x
+  line: 30.0
+  gap_mm: 0.5
+  pour_clearance_mm: 0.3
+  footprints:
+    C1: imported:0402
+    C2: imported:0402
+    C3: imported:0402
+    C4: imported:0402
+    C5: imported:0402
+    C6: imported:0402
+    C7: imported:0402
+    C8: imported:0402
+    C9: imported:0402
+    C10: imported:0402
+    C11: imported:0402
+    C12: imported:0402
+    D1: imported:0402
+    D2: imported:0402
+    D3: imported:0402
+    D4: imported:0402
+    D5: imported:0402
+    D6: imported:0402
+    D7: imported:0402
+    D8: imported:0402
+    D9: imported:0402
+    D10: imported:0402
+    DA0: imported:0603D
+    DAG1: imported:0603D
+    DAG2: imported:0603D
+    DAG3: imported:0603D
+    DAG4: imported:0603D
+    DAY1: imported:0603D
+    DAY2: imported:0603D
+    DAY3: imported:0603D
+    DAY4: imported:0603D
+    DB0: imported:0603D
+    DBG1: imported:0603D
+    DBG2: imported:0603D
+    DBG3: imported:0603D
+    DBG4: imported:0603D
+    DBY1: imported:0603D
+    DBY2: imported:0603D
+    DBY3: imported:0603D
+    DBY4: imported:0603D
+    MH1: imported:HOLE126MIL-COPPER
+    MH2: imported:HOLE126MIL-COPPER
+    MH3: imported:HOLE126MIL-COPPER
+    MH4: imported:HOLE126MIL-COPPER
+    MH5: imported:HOLE126MIL-COPPER
+    MH6: imported:HOLE126MIL-COPPER
+    P1: imported:HEADER-2x3
+    P9: imported:HEADER-2x8
+    P20: imported:HEADER-2x11
+    P22: imported:HEADER-2x13
+    P28: imported:HEADER-2x11
+    PA0: imported:GSG-SMA-73251-2120
+    PA1: imported:GSG-SMA-73251-2120
+    PA2: imported:GSG-SMA-73251-2120
+    PA3: imported:GSG-SMA-73251-2120
+    PA4: imported:GSG-SMA-73251-2120
+    PB0: imported:GSG-SMA-73251-2120
+    PB1: imported:GSG-SMA-73251-2120
+    PB2: imported:GSG-SMA-73251-2120
+    PB3: imported:GSG-SMA-73251-2120
+    PB4: imported:GSG-SMA-73251-2120
+    R1: imported:0603
+    R2: imported:0603
+    R3: imported:0603
+    R4: imported:0603
+    R5: imported:0603
+    R6: imported:0603
+    R7: imported:0603
+    R8: imported:0603
+    R9: imported:0603
+    R10: imported:0603
+    R11: imported:0603
+    R12: imported:0603
+    R13: imported:0603
+    R14: imported:0603
+    R15: imported:0603
+    R16: imported:0603
+    R17: imported:0603
+    R18: imported:0603
+    R19: imported:0603
+    R20: imported:0603
+    U1: imported:QFN12-3
+    U2: imported:SKY13322-375LF
+    U3: imported:SKY13322-375LF
+    U4: imported:TSSOP16
+    U5: imported:TSSOP20
+    U6: imported:SOT363
+    U7: imported:SOT363
+    U8: imported:SOT353-1
+    U9: imported:SOT353-1
+    U10: imported:SOT363
+    U11: imported:SOT363
+    U12: imported:SOT363
+    U13: imported:SOT363
+    U14: imported:SOT353-1
+    U15: imported:SOT353-1
+    U16: imported:SOT363
+    J1: imported:HEADER-2x20-REVERSE
+    J2: imported:HEADER-2x20-REVERSE
+    C13: imported:0402
+    C14: imported:0402
+    C15: imported:0402
+    C16: imported:0402
+    C17: imported:0402
+    C18: imported:0402
+    C19: imported:0402
+    C20: imported:0402
+    C21: imported:0402
+    C22: imported:0402
+    C23: imported:0402
+    C24: imported:0402
+    C25: imported:0402
+    C26: imported:0402
+    C27: imported:0402
+    C28: imported:0402
+    C29: imported:0402
+    C30: imported:0402
+    C31: imported:0402
+    C32: imported:0402
+    C33: imported:0402
+    C34: imported:0402
+    C35: imported:0402
+    TP1: imported:TESTPOINT-50MIL
+    TP2: imported:TESTPOINT-50MIL
+    TP3: imported:TESTPOINT-50MIL
+    TP4: imported:TESTPOINT-50MIL
+    TP5: imported:TESTPOINT-50MIL
+    TP6: imported:TESTPOINT-50MIL
+    TP7: imported:TESTPOINT-50MIL
+    TP8: imported:TESTPOINT-50MIL
+    TP9: imported:TESTPOINT-50MIL
+    TP10: imported:TESTPOINT-50MIL
+    TP11: imported:TESTPOINT-50MIL
+    TP12: imported:TESTPOINT-50MIL
+    TP13: imported:TESTPOINT-50MIL
+    TP14: imported:TESTPOINT-50MIL
+    TP15: imported:TESTPOINT-50MIL
+    TP16: imported:TESTPOINT-50MIL
+    TP17: imported:TESTPOINT-50MIL
+    TP18: imported:TESTPOINT-50MIL
+    TP19: imported:TESTPOINT-50MIL
+    TP20: imported:TESTPOINT-50MIL
+    TP21: imported:TESTPOINT-50MIL
+    TP22: imported:TESTPOINT-50MIL
+    TP23: imported:TESTPOINT-50MIL
+    TP24: imported:TESTPOINT-50MIL
+    TP25: imported:TESTPOINT-50MIL
+    TP26: imported:TESTPOINT-50MIL
+    TP27: imported:TESTPOINT-50MIL
+    TP28: imported:TESTPOINT-50MIL
+    TP29: imported:TESTPOINT-50MIL
+    TP30: imported:TESTPOINT-50MIL
+  ground:
+    fence_pitch_mm: 4.0
+    stitch_pitch_mm: 4.0
+  unlisted_pads: open
+project:
+  eps_eff: 3.25
+  rails: []

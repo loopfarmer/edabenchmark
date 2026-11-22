@@ -1,0 +1,13 @@
+{
+ "id": "lband_element__axis__0",
+ "board": "lband_element",
+ "family": "axis",
+ "faults": [
+  "layout.axis=x (was y)"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "parts span x 0.90..53.91, y 1.92..19.27, outside the 26 x 66 mm outline with a 0.5 mm margin, with U1, U2 set square"
+ }
+}

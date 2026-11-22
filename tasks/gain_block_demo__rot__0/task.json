@@ -1,0 +1,25 @@
+{
+ "id": "gain_block_demo__rot__0",
+ "board": "gain_block_demo",
+ "family": "rot",
+ "faults": [
+  "layout.rotation.C3=180"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": true,
+  "critic_ran": true,
+  "errors": [
+   {
+    "id": "placement:rf:LNA2OUT:over_floor",
+    "message": "LNA2OUT: shortest path on F.Cu is about 6.40 mm, 17% over its floor of 5.45 mm (other pads are in the way: it bends 2 time(s))"
+   },
+   {
+    "id": "placement:rf:COAX:over_floor",
+    "message": "COAX: shortest path on F.Cu is about 6.86 mm, 19% over its floor of 5.75 mm (other pads are in the way: it bends 2 time(s))"
+   }
+  ],
+  "warnings": [],
+  "cost": 1.501
+ }
+}

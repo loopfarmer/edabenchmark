@@ -1,0 +1,14 @@
+{
+ "id": "cband_element__axis_rot__0",
+ "board": "cband_element",
+ "family": "axis_rot",
+ "faults": [
+  "layout.axis=y",
+  "layout.rotation.C1=180"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "parts span x 3.38..17.46, y 0.90..55.94, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square"
+ }
+}

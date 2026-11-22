@@ -1,0 +1,24 @@
+{
+ "id": "archive-lora__rot__0",
+ "board": "archive-lora",
+ "family": "rot",
+ "faults": [
+  "layout.rotation.U1=90"
+ ],
+ "expect": "clean",
+ "source": "edaloop evaluation archive",
+ "licence": "CC BY-SA 3.0 (Adafruit)",
+ "parts": 18,
+ "initial": {
+  "built": true,
+  "critic_ran": true,
+  "errors": [
+   {
+    "id": "placement:rf:N$1:over_floor",
+    "message": "N$1: shortest path on F.Cu is about 21.19 mm, 11% over its floor of 19.10 mm (other pads are in the way: it bends 2 time(s))"
+   }
+  ],
+  "warnings": [],
+  "cost": 2.339
+ }
+}

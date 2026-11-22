@@ -1,0 +1,13 @@
+{
+ "id": "gain_block_demo__ask__0",
+ "board": "gain_block_demo",
+ "family": "ask",
+ "faults": [
+  "project.rails[0].loads.R1.1=REQUIRED"
+ ],
+ "expect": "ask",
+ "initial": {
+  "built": false,
+  "build_error": "edaloop: the description still needs these currents, in amps: project.rails: VDD load at R1.1"
+ }
+}

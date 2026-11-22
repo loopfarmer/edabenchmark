@@ -1,0 +1,25 @@
+{
+ "id": "four_channel_demo__rot__0",
+ "board": "four_channel_demo",
+ "family": "rot",
+ "faults": [
+  "layout.rotation.U4=90"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": true,
+  "critic_ran": true,
+  "errors": [
+   {
+    "id": "placement:rf:A4:over_floor",
+    "message": "A4: shortest path on F.Cu is about 3.78 mm, 28% over its floor of 2.95 mm (other pads are in the way: it bends 2 time(s))"
+   },
+   {
+    "id": "placement:rf:OUT4:over_floor",
+    "message": "OUT4: shortest path on F.Cu is about 6.03 mm, 22% over its floor of 4.95 mm (other pads are in the way: it bends 3 time(s))"
+   }
+  ],
+  "warnings": [],
+  "cost": 2.114
+ }
+}

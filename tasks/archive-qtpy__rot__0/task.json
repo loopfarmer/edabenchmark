@@ -1,0 +1,33 @@
+{
+ "id": "archive-qtpy__rot__0",
+ "board": "archive-qtpy",
+ "family": "rot",
+ "faults": [
+  "layout.rotation.L2=180"
+ ],
+ "expect": "clean",
+ "source": "edaloop evaluation archive",
+ "licence": "CC BY-SA 3.0 (Adafruit)",
+ "parts": 42,
+ "initial": {
+  "built": true,
+  "critic_ran": true,
+  "errors": [
+   {
+    "id": "placement:rf:LNA:over_floor",
+    "message": "LNA: shortest path on F.Cu is about 5.33 mm, 20% over its floor of 4.45 mm (other pads are in the way: it bends 2 time(s))"
+   },
+   {
+    "id": "placement:rf:N$3:over_floor",
+    "message": "N$3: shortest path on F.Cu is about 5.62 mm, 15% over its floor of 4.90 mm (other pads are in the way: it bends 3 time(s))"
+   }
+  ],
+  "warnings": [
+   "placement:escape:Q5.5",
+   "placement:escape:X6.A5",
+   "placement:escape:X6.B5",
+   "placement:escape:X6.A5xB5"
+  ],
+  "cost": 21.525
+ }
+}

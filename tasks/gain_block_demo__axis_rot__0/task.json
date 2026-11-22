@@ -1,0 +1,14 @@
+{
+ "id": "gain_block_demo__axis_rot__0",
+ "board": "gain_block_demo",
+ "family": "axis_rot",
+ "faults": [
+  "layout.axis=y",
+  "layout.rotation.C3=180"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "parts span x 6.66..18.38, y 0.90..31.69, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square"
+ }
+}

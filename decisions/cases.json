@@ -1,0 +1,510 @@
+{
+ "questions": {
+  "kind": {
+   "type": "choice",
+   "instructions": "What change does this board description need next?",
+   "criteria": {
+    "rotation": "A part's rotation override is wrong, so its RF pads are off the line",
+    "spacing": "The parts don't fit the board: the gap between parts or the line position is wrong",
+    "value": "A value only a person can give is missing, such as a load current"
+   }
+  },
+  "person": {
+   "type": "noul",
+   "instructions": "Does this need a value or decision that only a person can give?"
+  }
+ },
+ "note": "labels come from each task's injected fault, not from a judge; axis faults are labelled spacing (the parts don't fit)",
+ "cases": [
+  {
+   "id": "archive-lna915__ask_real__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VCC load at L2.2; project.rails: VCC load at R1.1; project.rails: VCC load at R2.1; project.rails: VCC load at U1.1; project.rails: VCC load at U1.2; project.rails: VCC load at U2.1; project.rails: VCC load at U2.2; project.rails: VCC load at U3.1; project.rails: VCC load at U3.5; project.rails: VCC load at L4.1",
+    "description": "board lna915 outline_mm=None\nlayout: {'axis': 'x', 'line': 30.0, 'gap_mm': 0.5, 'unlisted_pads': 'open'}\nRF chain (net: from -> to): Net-(C5-Pad1): P1.3 -> C5.1; Net-(C5-Pad2): C5.2 -> U4.1; Net-(C1-Pad1): U4.4 -> C1.1; Net-(C1-Pad2): C1.2 -> U1.3; Net-(C8-Pad1): U1.4 -> C8.1; Net-(C8-Pad2): C8.2 -> U3.3; Net-(C6-Pad1): U3.4 -> C6.1; Net-(C6-Pad2): C6.2 -> U2.4; Net-(C2-Pad1): U2.3 -> C2.1; Net-(C2-Pad2): C2.2 -> P1.1\n  L2: 39nH [0402] nets=['Net-(C5-Pad1)', 'VCC']\n  R1: 3k [0402] nets=['Net-(R1-Pad2)', 'VCC']\n  R2: 470 [0402] nets=['Net-(D4-Pad2)', 'VCC']\n  U1: SWITCH [GRF6011] nets=['GND', 'Net-(C1-Pad2)', 'Net-(C7-Pad1)', 'Net-(C8-Pad1)', 'VCC']\n  U2: SWITCH [GRF6011] nets=['GND', 'Net-(C2-Pad1)', 'Net-(C6-Pad2)', 'Net-(C7-Pad2)', 'VCC']\n  U3: LNA [TSLP-7-1] nets=['GND', 'Net-(C10-Pad2)', 'Net-(C6-Pad1)', 'Net-(C8-Pad2)', 'Net-(R1-Pad2)', 'VCC']\n  L4: 39nH [0402] nets=['Net-(C6-Pad1)', 'VCC']"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask_real"
+  },
+  {
+   "id": "archive-lora__combo__0",
+   "state": {
+    "result": "critic errors: placement:rf:N$1:over_floor: N$1: shortest path on F.Cu is about 25.92 mm, 8% over its floor of 24.10 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board lora outline_mm=None\nlayout: {'axis': 'x', 'line': 30.0, 'gap_mm': 3.0, 'unlisted_pads': 'open', 'rotation': {'U1': 90}}\nRF chain (net: from -> to): N$1: X1.P -> U1.1P\n  U1: RFM69HCW [RFMHCW_SMT] nets=['3.3V', 'CS_3V', 'DIO0', 'DIO1', 'DIO2', 'DIO3', 'DIO4', 'DIO5', 'GND', 'MISO_3V', 'MOSI_3V', 'N$1', 'RST_3V', 'SCK_3V'] rotation_override=90\n  X1: uFL/SMA [SMA_EDGELAUNCH_UFL] nets=['GND', 'N$1']\n  JP2:  [1X01_ROUND] nets=['N$1']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "combo"
+  },
+  {
+   "id": "archive-lora__rot__0",
+   "state": {
+    "result": "critic errors: placement:rf:N$1:over_floor: N$1: shortest path on F.Cu is about 21.19 mm, 11% over its floor of 19.10 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board lora outline_mm=None\nlayout: {'axis': 'x', 'line': 30.0, 'gap_mm': 0.5, 'unlisted_pads': 'open', 'rotation': {'U1': 90}}\nRF chain (net: from -> to): N$1: X1.P -> U1.1P\n  U1: RFM69HCW [RFMHCW_SMT] nets=['3.3V', 'CS_3V', 'DIO0', 'DIO1', 'DIO2', 'DIO3', 'DIO4', 'DIO5', 'GND', 'MISO_3V', 'MOSI_3V', 'N$1', 'RST_3V', 'SCK_3V'] rotation_override=90\n  X1: uFL/SMA [SMA_EDGELAUNCH_UFL] nets=['GND', 'N$1']\n  JP2:  [1X01_ROUND] nets=['N$1']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "archive-qtpy__combo__0",
+   "state": {
+    "result": "critic errors: placement:rf:LNA:over_floor: LNA: shortest path on F.Cu is about 10.07 mm, 7% over its floor of 9.45 mm (other pads are in the way: it bends 1 time(s)); placement:rf:N$3:over_floor: N$3: shortest path on F.Cu is about 10.53 mm, 6% over its floor of 9.90 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board qtpy outline_mm=None\nlayout: {'axis': 'x', 'line': 30.0, 'gap_mm': 3.0, 'unlisted_pads': 'open', 'rotation': {'L2': 180}}\nRF chain (net: from -> to): N$3: X1.FP -> L2.1; LNA: L2.2 -> X2.2\n  X1: 2.4GHz [ANT_2450AT18B100] nets=['N$3']\n  C9: 1.2pF [_0402NO] nets=['GND', 'N$3']\n  C7: 1.2pF [_0402NO] nets=['GND', 'LNA']\n  L2: 2.2nH [_0402] nets=['LNA', 'N$3'] rotation_override=180\n  X2: ESP-32-PICO-V3-02 [QFN48_7X7] nets=['3.3V', 'A0', 'A1', 'A2', 'A3', 'GND', 'IO0', 'LNA', 'MISO', 'MOSI', 'NEOPIX', 'NEOPIX_PWR', 'RX', 'RXD0', 'SCK', 'SCL', 'SCL1', 'SDA', 'SDA1', 'TX', 'TXD0', '~{RESET}']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "combo"
+  },
+  {
+   "id": "archive-qtpy__rot__0",
+   "state": {
+    "result": "critic errors: placement:rf:LNA:over_floor: LNA: shortest path on F.Cu is about 5.33 mm, 20% over its floor of 4.45 mm (other pads are in the way: it bends 2 time(s)); placement:rf:N$3:over_floor: N$3: shortest path on F.Cu is about 5.62 mm, 15% over its floor of 4.90 mm (other pads are in the way: it bends 3 time(s))",
+    "description": "board qtpy outline_mm=None\nlayout: {'axis': 'x', 'line': 30.0, 'gap_mm': 0.5, 'unlisted_pads': 'open', 'rotation': {'L2': 180}}\nRF chain (net: from -> to): N$3: X1.FP -> L2.1; LNA: L2.2 -> X2.2\n  X1: 2.4GHz [ANT_2450AT18B100] nets=['N$3']\n  C9: 1.2pF [_0402NO] nets=['GND', 'N$3']\n  C7: 1.2pF [_0402NO] nets=['GND', 'LNA']\n  L2: 2.2nH [_0402] nets=['LNA', 'N$3'] rotation_override=180\n  X2: ESP-32-PICO-V3-02 [QFN48_7X7] nets=['3.3V', 'A0', 'A1', 'A2', 'A3', 'GND', 'IO0', 'LNA', 'MISO', 'MOSI', 'NEOPIX', 'NEOPIX_PWR', 'RX', 'RXD0', 'SCK', 'SCL', 'SCL1', 'SDA', 'SDA1', 'TX', 'TXD0', '~{RESET}']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "cband_element__ask__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VDD load at R1.1",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  R1: 0R [R_0402_1005Metric] nets=['BIAS1', 'VDD']"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask"
+  },
+  {
+   "id": "cband_element__ask_rot__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VDD load at R1.1",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}, 'rotation': {'C2': 180}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  C2: 4.7pF [C_0402_1005Metric] nets=['IS1', 'LNA1OUT'] rotation_override=180\n  R1: 0R [R_0402_1005Metric] nets=['BIAS1', 'VDD']"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask_rot"
+  },
+  {
+   "id": "cband_element__axis__0",
+   "state": {
+    "result": "build failed: parts span x 2.42..17.46, y 0.90..56.80, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'y', 'line': 10.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "axis"
+  },
+  {
+   "id": "cband_element__axis_rot__0",
+   "state": {
+    "result": "build failed: parts span x 3.38..17.46, y 0.90..55.94, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'y', 'line': 10.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}, 'rotation': {'C1': 180}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']\n  C1: 4.7pF [C_0402_1005Metric] nets=['LIM', 'LNA1IN'] rotation_override=180"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "axis_rot"
+  },
+  {
+   "id": "cband_element__combo__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..92.88, y 2.54..17.57, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 2.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}, 'rotation': {'C1': 180}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']\n  C1: 4.7pF [C_0402_1005Metric] nets=['LIM', 'LNA1IN'] rotation_override=180"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "combo"
+  },
+  {
+   "id": "cband_element__gap__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..92.85, y 2.54..17.57, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 2.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "gap"
+  },
+  {
+   "id": "cband_element__line__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..56.80, y -3.39..8.57, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 1.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "line"
+  },
+  {
+   "id": "cband_element__rot2__0",
+   "state": {
+    "result": "critic errors: placement:rf:LNA1IN:over_floor: LNA1IN: shortest path on F.Cu is about 2.66 mm, 27% over its floor of 2.10 mm (other pads are in the way: it bends 4 time(s)); placement:rf:LIM:over_floor: LIM: shortest path on F.Cu is about 3.53 mm, 12% over its floor of 3.15 mm (other pads are in the way: it bends 3 time(s)); placement:rf:IS1:over_floor: IS1: shortest path on F.Cu is about 3.88 mm, 14% over its floor of 3.40 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}, 'rotation': {'C1': 180, 'FL2': 180}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']\n  C1: 4.7pF [C_0402_1005Metric] nets=['LIM', 'LNA1IN'] rotation_override=180\n  U2: LNA [MC1631-1] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  C2: 4.7pF [C_0402_1005Metric] nets=['IS1', 'LNA1OUT']\n  FL2: highpass [HFCN_FV1206-1] nets=['GND', 'IS1', 'IS2'] rotation_override=180"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot2"
+  },
+  {
+   "id": "cband_element__rot__0",
+   "state": {
+    "result": "critic errors: placement:rf:LNA1IN:over_floor: LNA1IN: shortest path on F.Cu is about 2.66 mm, 27% over its floor of 2.10 mm (other pads are in the way: it bends 4 time(s)); placement:rf:LIM:over_floor: LIM: shortest path on F.Cu is about 3.75 mm, 12% over its floor of 3.35 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}, 'rotation': {'C1': 180}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']\n  C1: 4.7pF [C_0402_1005Metric] nets=['LIM', 'LNA1IN'] rotation_override=180\n  U2: LNA [MC1631-1] nets=['GND', 'LNA1IN', 'LNA1OUT']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "cband_element__rot__1",
+   "state": {
+    "result": "critic errors: placement:rf:IS1:over_floor: IS1: shortest path on F.Cu is about 3.88 mm, 14% over its floor of 3.40 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}, 'rotation': {'FL2': 180}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  C2: 4.7pF [C_0402_1005Metric] nets=['IS1', 'LNA1OUT']\n  FL2: highpass [HFCN_FV1206-1] nets=['GND', 'IS1', 'IS2'] rotation_override=180"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "cband_element__rot__2",
+   "state": {
+    "result": "critic errors: placement:rf:IS1:over_floor: IS1: shortest path on F.Cu is about 2.94 mm, 25% over its floor of 2.35 mm (other pads are in the way: it bends 3 time(s)); placement:rf:LNA1OUT:over_floor: LNA1OUT: shortest path on F.Cu is about 4.39 mm, 19% over its floor of 3.70 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 0.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}, 'rotation': {'C2': 180}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U2: LNA [MC1631-1] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  L1: 12nH [L_0603_1608Metric] nets=['BIAS1', 'LNA1OUT']\n  C2: 4.7pF [C_0402_1005Metric] nets=['IS1', 'LNA1OUT'] rotation_override=180\n  FL2: highpass [HFCN_FV1206-1] nets=['GND', 'IS1', 'IS2']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "cband_element__triple__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..92.80, y 2.54..19.55, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square",
+    "description": "board cband_element outline_mm=[61.7, 18]\nlayout: {'axis': 'x', 'line': 10.0, 'gap_mm': 2.1, 'net_width': {'BIAS1': 0.3, 'BIAS2': 0.3}, 'rotation': {'C1': 180, 'FL2': 180}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> C1.1; LNA1IN: C1.2 -> U2.3; LNA1OUT: U2.6 -> C2.1; IS1: C2.2 -> FL2.1; IS2: FL2.3 -> RP1.1; IS3: RP1.2 -> U3.2; LNA2OUT: U3.8 -> C3.1; LP_IN: C3.2 -> FL3.1; LP_OUT: FL3.3 -> C4.1; COAX: C4.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']\n  C1: 4.7pF [C_0402_1005Metric] nets=['LIM', 'LNA1IN'] rotation_override=180\n  FL2: highpass [HFCN_FV1206-1] nets=['GND', 'IS1', 'IS2'] rotation_override=180"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "triple"
+  },
+  {
+   "id": "four_channel_demo__ask__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VDD load at L1.2",
+    "description": "board four_channel_demo outline_mm=None\nlayout: {'axis': 'x', 'line': 20.0, 'gap_mm': 0.5}\nRF chain (net: from -> to): IN1: J1.1 -> C1.1; A1: C1.2 -> U1.3; OUT1: U1.1 -> C2.1; O1: C2.2 -> J2.1; IN2: J3.1 -> C5.1; A2: C5.2 -> U2.3; OUT2: U2.1 -> C6.1; O2: C6.2 -> J4.1; IN3: J5.1 -> C9.1; A3: C9.2 -> U3.3; OUT3: U3.1 -> C10.1; O3: C10.2 -> J6.1; IN4: J7.1 -> C13.1; A4: C13.2 -> U4.3; OUT4: U4.1 -> C14.1; O4: C14.2 -> J8.1\n  L1: 100nH [L_0603_1608Metric] nets=['OUT1', 'VDD']"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask"
+  },
+  {
+   "id": "four_channel_demo__ask_rot__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VDD load at L1.2",
+    "description": "board four_channel_demo outline_mm=None\nlayout: {'axis': 'x', 'line': 20.0, 'gap_mm': 0.5, 'rotation': {'C6': 180}}\nRF chain (net: from -> to): IN1: J1.1 -> C1.1; A1: C1.2 -> U1.3; OUT1: U1.1 -> C2.1; O1: C2.2 -> J2.1; IN2: J3.1 -> C5.1; A2: C5.2 -> U2.3; OUT2: U2.1 -> C6.1; O2: C6.2 -> J4.1; IN3: J5.1 -> C9.1; A3: C9.2 -> U3.3; OUT3: U3.1 -> C10.1; O3: C10.2 -> J6.1; IN4: J7.1 -> C13.1; A4: C13.2 -> U4.3; OUT4: U4.1 -> C14.1; O4: C14.2 -> J8.1\n  L1: 100nH [L_0603_1608Metric] nets=['OUT1', 'VDD']\n  C6: 100nF [C_0603_1608Metric] nets=['O2', 'OUT2'] rotation_override=180"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask_rot"
+  },
+  {
+   "id": "four_channel_demo__combo__0",
+   "state": {
+    "result": "critic errors: placement:rf:A4:over_floor: A4: shortest path on F.Cu is about 7.47 mm, 7% over its floor of 6.95 mm (other pads are in the way: it bends 2 time(s)); placement:rf:OUT4:over_floor: OUT4: shortest path on F.Cu is about 13.88 mm, 7% over its floor of 12.95 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board four_channel_demo outline_mm=None\nlayout: {'axis': 'x', 'line': 20.0, 'gap_mm': 4.5, 'rotation': {'U4': 90}}\nRF chain (net: from -> to): IN1: J1.1 -> C1.1; A1: C1.2 -> U1.3; OUT1: U1.1 -> C2.1; O1: C2.2 -> J2.1; IN2: J3.1 -> C5.1; A2: C5.2 -> U2.3; OUT2: U2.1 -> C6.1; O2: C6.2 -> J4.1; IN3: J5.1 -> C9.1; A3: C9.2 -> U3.3; OUT3: U3.1 -> C10.1; O3: C10.2 -> J6.1; IN4: J7.1 -> C13.1; A4: C13.2 -> U4.3; OUT4: U4.1 -> C14.1; O4: C14.2 -> J8.1\n  C13: 100nF [C_0603_1608Metric] nets=['A4', 'IN4']\n  U4: LNA [SOT-343_SC-70-4] nets=['A4', 'GND', 'OUT4'] rotation_override=90\n  L4: 100nH [L_0603_1608Metric] nets=['OUT4', 'VDD']\n  C14: 100nF [C_0603_1608Metric] nets=['O4', 'OUT4']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "combo"
+  },
+  {
+   "id": "four_channel_demo__rot2__0",
+   "state": {
+    "result": "critic errors: placement:rf:A4:over_floor: A4: shortest path on F.Cu is about 3.78 mm, 28% over its floor of 2.95 mm (other pads are in the way: it bends 2 time(s)); placement:rf:O1:over_floor: O1: shortest path on F.Cu is about 4.47 mm, 18% over its floor of 3.80 mm (other pads are in the way: it bends 2 time(s)); placement:rf:OUT4:over_floor: OUT4: shortest path on F.Cu is about 6.03 mm, 22% over its floor of 4.95 mm (other pads are in the way: it bends 3 time(s)); placement:rf:OUT1:over_floor: OUT1: shortest path on F.Cu is about 6.40 mm, 17% over its floor of 5.45 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board four_channel_demo outline_mm=None\nlayout: {'axis': 'x', 'line': 20.0, 'gap_mm': 0.5, 'rotation': {'U4': 90, 'C2': 180}}\nRF chain (net: from -> to): IN1: J1.1 -> C1.1; A1: C1.2 -> U1.3; OUT1: U1.1 -> C2.1; O1: C2.2 -> J2.1; IN2: J3.1 -> C5.1; A2: C5.2 -> U2.3; OUT2: U2.1 -> C6.1; O2: C6.2 -> J4.1; IN3: J5.1 -> C9.1; A3: C9.2 -> U3.3; OUT3: U3.1 -> C10.1; O3: C10.2 -> J6.1; IN4: J7.1 -> C13.1; A4: C13.2 -> U4.3; OUT4: U4.1 -> C14.1; O4: C14.2 -> J8.1\n  U1: LNA [SOT-343_SC-70-4] nets=['A1', 'GND', 'OUT1']\n  L1: 100nH [L_0603_1608Metric] nets=['OUT1', 'VDD']\n  C2: 100nF [C_0603_1608Metric] nets=['O1', 'OUT1'] rotation_override=180\n  J2: U.FL out 1 [U.FL_Hirose_U.FL-R-SMT-1_Vertical] nets=['GND', 'O1']\n  C13: 100nF [C_0603_1608Metric] nets=['A4', 'IN4']\n  U4: LNA [SOT-343_SC-70-4] nets=['A4', 'GND', 'OUT4'] rotation_override=90\n  L4: 100nH [L_0603_1608Metric] nets=['OUT4', 'VDD']\n  C14: 100nF [C_0603_1608Metric] nets=['O4', 'OUT4']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot2"
+  },
+  {
+   "id": "four_channel_demo__rot__0",
+   "state": {
+    "result": "critic errors: placement:rf:A4:over_floor: A4: shortest path on F.Cu is about 3.78 mm, 28% over its floor of 2.95 mm (other pads are in the way: it bends 2 time(s)); placement:rf:OUT4:over_floor: OUT4: shortest path on F.Cu is about 6.03 mm, 22% over its floor of 4.95 mm (other pads are in the way: it bends 3 time(s))",
+    "description": "board four_channel_demo outline_mm=None\nlayout: {'axis': 'x', 'line': 20.0, 'gap_mm': 0.5, 'rotation': {'U4': 90}}\nRF chain (net: from -> to): IN1: J1.1 -> C1.1; A1: C1.2 -> U1.3; OUT1: U1.1 -> C2.1; O1: C2.2 -> J2.1; IN2: J3.1 -> C5.1; A2: C5.2 -> U2.3; OUT2: U2.1 -> C6.1; O2: C6.2 -> J4.1; IN3: J5.1 -> C9.1; A3: C9.2 -> U3.3; OUT3: U3.1 -> C10.1; O3: C10.2 -> J6.1; IN4: J7.1 -> C13.1; A4: C13.2 -> U4.3; OUT4: U4.1 -> C14.1; O4: C14.2 -> J8.1\n  C13: 100nF [C_0603_1608Metric] nets=['A4', 'IN4']\n  U4: LNA [SOT-343_SC-70-4] nets=['A4', 'GND', 'OUT4'] rotation_override=90\n  L4: 100nH [L_0603_1608Metric] nets=['OUT4', 'VDD']\n  C14: 100nF [C_0603_1608Metric] nets=['O4', 'OUT4']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "four_channel_demo__rot__1",
+   "state": {
+    "result": "critic errors: placement:rf:O1:over_floor: O1: shortest path on F.Cu is about 4.47 mm, 18% over its floor of 3.80 mm (other pads are in the way: it bends 2 time(s)); placement:rf:OUT1:over_floor: OUT1: shortest path on F.Cu is about 6.40 mm, 17% over its floor of 5.45 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board four_channel_demo outline_mm=None\nlayout: {'axis': 'x', 'line': 20.0, 'gap_mm': 0.5, 'rotation': {'C2': 180}}\nRF chain (net: from -> to): IN1: J1.1 -> C1.1; A1: C1.2 -> U1.3; OUT1: U1.1 -> C2.1; O1: C2.2 -> J2.1; IN2: J3.1 -> C5.1; A2: C5.2 -> U2.3; OUT2: U2.1 -> C6.1; O2: C6.2 -> J4.1; IN3: J5.1 -> C9.1; A3: C9.2 -> U3.3; OUT3: U3.1 -> C10.1; O3: C10.2 -> J6.1; IN4: J7.1 -> C13.1; A4: C13.2 -> U4.3; OUT4: U4.1 -> C14.1; O4: C14.2 -> J8.1\n  U1: LNA [SOT-343_SC-70-4] nets=['A1', 'GND', 'OUT1']\n  L1: 100nH [L_0603_1608Metric] nets=['OUT1', 'VDD']\n  C2: 100nF [C_0603_1608Metric] nets=['O1', 'OUT1'] rotation_override=180\n  J2: U.FL out 1 [U.FL_Hirose_U.FL-R-SMT-1_Vertical] nets=['GND', 'O1']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "four_channel_demo__rot__2",
+   "state": {
+    "result": "critic errors: placement:rf:O2:over_floor: O2: shortest path on F.Cu is about 4.47 mm, 18% over its floor of 3.80 mm (other pads are in the way: it bends 2 time(s)); placement:rf:OUT2:over_floor: OUT2: shortest path on F.Cu is about 6.40 mm, 17% over its floor of 5.45 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board four_channel_demo outline_mm=None\nlayout: {'axis': 'x', 'line': 20.0, 'gap_mm': 0.5, 'rotation': {'C6': 180}}\nRF chain (net: from -> to): IN1: J1.1 -> C1.1; A1: C1.2 -> U1.3; OUT1: U1.1 -> C2.1; O1: C2.2 -> J2.1; IN2: J3.1 -> C5.1; A2: C5.2 -> U2.3; OUT2: U2.1 -> C6.1; O2: C6.2 -> J4.1; IN3: J5.1 -> C9.1; A3: C9.2 -> U3.3; OUT3: U3.1 -> C10.1; O3: C10.2 -> J6.1; IN4: J7.1 -> C13.1; A4: C13.2 -> U4.3; OUT4: U4.1 -> C14.1; O4: C14.2 -> J8.1\n  U2: LNA [SOT-343_SC-70-4] nets=['A2', 'GND', 'OUT2']\n  L2: 100nH [L_0603_1608Metric] nets=['OUT2', 'VDD']\n  C6: 100nF [C_0603_1608Metric] nets=['O2', 'OUT2'] rotation_override=180\n  J4: U.FL out 2 [U.FL_Hirose_U.FL-R-SMT-1_Vertical] nets=['GND', 'O2']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "four_channel_demo__triple__0",
+   "state": {
+    "result": "critic errors: placement:rf:A4:over_floor: A4: shortest path on F.Cu is about 7.47 mm, 7% over its floor of 6.95 mm (other pads are in the way: it bends 2 time(s)); placement:rf:O1:over_floor: O1: shortest path on F.Cu is about 8.22 mm, 5% over its floor of 7.80 mm (other pads are in the way: it bends 2 time(s)); placement:rf:OUT4:over_floor: OUT4: shortest path on F.Cu is about 13.88 mm, 7% over its floor of 12.95 mm (other pads are in the way: it bends 2 time(s)); placement:rf:OUT1:over_floor: OUT1: shortest path on F.Cu is about 14.32 mm, 6% over its floor of 13.45 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board four_channel_demo outline_mm=None\nlayout: {'axis': 'x', 'line': 20.0, 'gap_mm': 4.5, 'rotation': {'U4': 90, 'C2': 180}}\nRF chain (net: from -> to): IN1: J1.1 -> C1.1; A1: C1.2 -> U1.3; OUT1: U1.1 -> C2.1; O1: C2.2 -> J2.1; IN2: J3.1 -> C5.1; A2: C5.2 -> U2.3; OUT2: U2.1 -> C6.1; O2: C6.2 -> J4.1; IN3: J5.1 -> C9.1; A3: C9.2 -> U3.3; OUT3: U3.1 -> C10.1; O3: C10.2 -> J6.1; IN4: J7.1 -> C13.1; A4: C13.2 -> U4.3; OUT4: U4.1 -> C14.1; O4: C14.2 -> J8.1\n  U1: LNA [SOT-343_SC-70-4] nets=['A1', 'GND', 'OUT1']\n  L1: 100nH [L_0603_1608Metric] nets=['OUT1', 'VDD']\n  C2: 100nF [C_0603_1608Metric] nets=['O1', 'OUT1'] rotation_override=180\n  J2: U.FL out 1 [U.FL_Hirose_U.FL-R-SMT-1_Vertical] nets=['GND', 'O1']\n  C13: 100nF [C_0603_1608Metric] nets=['A4', 'IN4']\n  U4: LNA [SOT-343_SC-70-4] nets=['A4', 'GND', 'OUT4'] rotation_override=90\n  L4: 100nH [L_0603_1608Metric] nets=['OUT4', 'VDD']\n  C14: 100nF [C_0603_1608Metric] nets=['O4', 'OUT4']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "triple"
+  },
+  {
+   "id": "gain_block_demo__ask__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VDD load at R1.1",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 0.5}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  R1: 0R [R_0402_1005Metric] nets=['BIAS1', 'VDD']"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask"
+  },
+  {
+   "id": "gain_block_demo__ask_rot__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VDD load at R1.1",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 0.5, 'rotation': {'U2': 90}}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT'] rotation_override=90\n  R1: 0R [R_0402_1005Metric] nets=['BIAS1', 'VDD']"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask_rot"
+  },
+  {
+   "id": "gain_block_demo__axis__0",
+   "state": {
+    "result": "build failed: parts span x 9.51..19.68, y 0.90..33.24, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'y', 'line': 12.0, 'gap_mm': 0.5}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  U1: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "axis"
+  },
+  {
+   "id": "gain_block_demo__axis_rot__0",
+   "state": {
+    "result": "build failed: parts span x 6.66..18.38, y 0.90..31.69, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'y', 'line': 12.0, 'gap_mm': 0.5, 'rotation': {'C3': 180}}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  U1: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT']\n  C3: 100nF [C_0603_1608Metric] nets=['COAX', 'LNA2OUT'] rotation_override=180"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "axis_rot"
+  },
+  {
+   "id": "gain_block_demo__combo__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..69.24, y 4.32..14.49, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 4.5, 'rotation': {'C3': 180}}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  U1: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT']\n  C3: 100nF [C_0603_1608Metric] nets=['COAX', 'LNA2OUT'] rotation_override=180"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "combo"
+  },
+  {
+   "id": "gain_block_demo__gap__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..69.24, y 4.32..14.49, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 4.5}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  U1: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "gap"
+  },
+  {
+   "id": "gain_block_demo__line__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..33.24, y -4.69..3.50, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 1.0, 'gap_mm': 0.5}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  U1: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "line"
+  },
+  {
+   "id": "gain_block_demo__rot2__0",
+   "state": {
+    "result": "critic errors: placement:rf:LNA1IN:over_floor: LNA1IN: shortest path on F.Cu is about 4.09 mm, 18% over its floor of 3.45 mm (other pads are in the way: it bends 2 time(s)); placement:rf:IN:over_floor: IN: shortest path on F.Cu is about 4.37 mm, 15% over its floor of 3.80 mm (other pads are in the way: it bends 2 time(s)); placement:rf:LNA2OUT:over_floor: LNA2OUT: shortest path on F.Cu is about 6.40 mm, 17% over its floor of 5.45 mm (other pads are in the way: it bends 2 time(s)); placement:rf:COAX:over_floor: COAX: shortest path on F.Cu is about 6.86 mm, 19% over its floor of 5.75 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 0.5, 'rotation': {'C3': 180, 'C1': 180}}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  J1: U.FL input [U.FL_Hirose_U.FL-R-SMT-1_Vertical] nets=['GND', 'IN']\n  C1: 100nF [C_0603_1608Metric] nets=['IN', 'LNA1IN'] rotation_override=180\n  U1: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT']\n  L2: 100nH [L_0603_1608Metric] nets=['BIAS2', 'LNA2OUT']\n  C3: 100nF [C_0603_1608Metric] nets=['COAX', 'LNA2OUT'] rotation_override=180\n  L3: 100nH [L_0603_1608Metric] nets=['COAX', 'VDD']\n  J2: U.FL output and DC feed [U.FL_Hirose_U.FL-R-SMT-1_Vertical] nets=['COAX', 'GND']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot2"
+  },
+  {
+   "id": "gain_block_demo__rot__0",
+   "state": {
+    "result": "critic errors: placement:rf:LNA2OUT:over_floor: LNA2OUT: shortest path on F.Cu is about 6.40 mm, 17% over its floor of 5.45 mm (other pads are in the way: it bends 2 time(s)); placement:rf:COAX:over_floor: COAX: shortest path on F.Cu is about 6.86 mm, 19% over its floor of 5.75 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 0.5, 'rotation': {'C3': 180}}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT']\n  L2: 100nH [L_0603_1608Metric] nets=['BIAS2', 'LNA2OUT']\n  C3: 100nF [C_0603_1608Metric] nets=['COAX', 'LNA2OUT'] rotation_override=180\n  L3: 100nH [L_0603_1608Metric] nets=['COAX', 'VDD']\n  J2: U.FL output and DC feed [U.FL_Hirose_U.FL-R-SMT-1_Vertical] nets=['COAX', 'GND']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "gain_block_demo__rot__1",
+   "state": {
+    "result": "critic errors: placement:rf:LNA1IN:over_floor: LNA1IN: shortest path on F.Cu is about 4.09 mm, 18% over its floor of 3.45 mm (other pads are in the way: it bends 2 time(s)); placement:rf:IN:over_floor: IN: shortest path on F.Cu is about 4.37 mm, 15% over its floor of 3.80 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 0.5, 'rotation': {'C1': 180}}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  J1: U.FL input [U.FL_Hirose_U.FL-R-SMT-1_Vertical] nets=['GND', 'IN']\n  C1: 100nF [C_0603_1608Metric] nets=['IN', 'LNA1IN'] rotation_override=180\n  U1: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA1IN', 'LNA1OUT']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "gain_block_demo__rot__2",
+   "state": {
+    "result": "critic errors: placement:rf:LNA2IN:over_floor: LNA2IN: shortest path on F.Cu is about 3.78 mm, 28% over its floor of 2.95 mm (other pads are in the way: it bends 2 time(s)); placement:rf:LNA2OUT:over_floor: LNA2OUT: shortest path on F.Cu is about 6.03 mm, 22% over its floor of 4.95 mm (other pads are in the way: it bends 3 time(s))",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 0.5, 'rotation': {'U2': 90}}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  C2: 100nF [C_0603_1608Metric] nets=['LNA1OUT', 'LNA2IN']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT'] rotation_override=90\n  L2: 100nH [L_0603_1608Metric] nets=['BIAS2', 'LNA2OUT']\n  C3: 100nF [C_0603_1608Metric] nets=['COAX', 'LNA2OUT']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "gain_block_demo__triple__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..69.24, y 4.32..14.49, outside the 40 x 20 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board gain_block_demo outline_mm=[40, 20]\nlayout: {'axis': 'x', 'line': 12.0, 'gap_mm': 4.5, 'rotation': {'C3': 180, 'C1': 180}}\nRF chain (net: from -> to): IN: J1.1 -> C1.1; LNA1IN: C1.2 -> U1.3; LNA1OUT: U1.1 -> C2.1; LNA2IN: C2.2 -> U2.3; LNA2OUT: U2.1 -> C3.1; COAX: C3.2 -> J2.1\n  C1: 100nF [C_0603_1608Metric] nets=['IN', 'LNA1IN'] rotation_override=180\n  U1: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA1IN', 'LNA1OUT']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LNA2IN', 'LNA2OUT']\n  C3: 100nF [C_0603_1608Metric] nets=['COAX', 'LNA2OUT'] rotation_override=180"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "triple"
+  },
+  {
+   "id": "lband_element__ask__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VDD load at R1.1",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 1.0}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  R1: 0R [R_0603_1608Metric] nets=['BIAS', 'VDD']"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask"
+  },
+  {
+   "id": "lband_element__ask_rot__0",
+   "state": {
+    "result": "build failed: edaloop: the description still needs these currents, in amps: project.rails: VDD load at R1.1",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 1.0, 'rotation': {'C1': 90}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  C1: 100nF [C_0603_1608Metric] nets=['LNA2LP', 'LNAOUT'] rotation_override=90\n  R1: 0R [R_0603_1608Metric] nets=['BIAS', 'VDD']"
+   },
+   "kind": "value",
+   "person": true,
+   "family": "ask_rot"
+  },
+  {
+   "id": "lband_element__axis__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..53.91, y 1.92..19.27, outside the 26 x 66 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'x', 'line': 13.0, 'gap_mm': 1.0}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "axis"
+  },
+  {
+   "id": "lband_element__axis_rot__0",
+   "state": {
+    "result": "build failed: parts span x 0.90..53.91, y 1.92..19.27, outside the 26 x 66 mm outline with a 0.5 mm margin, with U2 set square",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'x', 'line': 13.0, 'gap_mm': 1.0, 'rotation': {'U1': 90}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM'] rotation_override=90\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "axis_rot"
+  },
+  {
+   "id": "lband_element__combo__0",
+   "state": {
+    "result": "build failed: parts span x 5.84..24.08, y 0.90..119.16, outside the 26 x 66 mm outline with a 0.5 mm margin, with U2 set square",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 7.5, 'rotation': {'U1': 90}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM'] rotation_override=90\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "combo"
+  },
+  {
+   "id": "lband_element__gap__0",
+   "state": {
+    "result": "build failed: parts span x 6.72..24.08, y 0.90..118.91, outside the 26 x 66 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 7.5}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "gap"
+  },
+  {
+   "id": "lband_element__line__0",
+   "state": {
+    "result": "build failed: parts span x -5.28..12.08, y 0.90..53.91, outside the 26 x 66 mm outline with a 0.5 mm margin, with U1, U2 set square",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 1.0, 'gap_mm': 1.0}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM']\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "line"
+  },
+  {
+   "id": "lband_element__rot2__0",
+   "state": {
+    "result": "critic errors: placement:rf:LP2OUT:over_floor: LP2OUT: shortest path on F.Cu is about 7.43 mm, 29% over its floor of 5.75 mm (other pads are in the way: it bends 4 time(s)); placement:rf:LP1OUT:over_floor: LP1OUT: shortest path on F.Cu is about 7.45 mm, 29% over its floor of 5.80 mm (other pads are in the way: it bends 3 time(s)); placement:rf:LIM:over_floor: LIM: shortest path on F.Cu is about 9.19 mm, 9% over its floor of 8.45 mm (other pads are in the way: it bends 2 time(s)); placement:rf:HPF2LIM:over_floor: HPF2LIM: shortest path on F.Cu is about 9.24 mm, 9% over its floor of 8.50 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 1.0, 'rotation': {'U1': 90, 'FL3': 90}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  FL1: highpass [LFCN_FV1206] nets=['ANT', 'GND', 'HPF2LIM']\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM'] rotation_override=90\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']\n  FL2: lowpass [LFCN_FV1206] nets=['GND', 'LNA2LP', 'LP1OUT']\n  FL3: lowpass [LFCN_FV1206] nets=['GND', 'LP1OUT', 'LP2OUT'] rotation_override=90\n  C2: 100nF [C_0603_1608Metric] nets=['COAX', 'LP2OUT']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot2"
+  },
+  {
+   "id": "lband_element__rot__0",
+   "state": {
+    "result": "critic errors: placement:rf:LIM:over_floor: LIM: shortest path on F.Cu is about 9.19 mm, 9% over its floor of 8.45 mm (other pads are in the way: it bends 2 time(s)); placement:rf:HPF2LIM:over_floor: HPF2LIM: shortest path on F.Cu is about 9.24 mm, 9% over its floor of 8.50 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 1.0, 'rotation': {'U1': 90}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  FL1: highpass [LFCN_FV1206] nets=['ANT', 'GND', 'HPF2LIM']\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM'] rotation_override=90\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "lband_element__rot__1",
+   "state": {
+    "result": "critic errors: placement:rf:LP2OUT:over_floor: LP2OUT: shortest path on F.Cu is about 7.43 mm, 29% over its floor of 5.75 mm (other pads are in the way: it bends 4 time(s)); placement:rf:LP1OUT:over_floor: LP1OUT: shortest path on F.Cu is about 7.45 mm, 29% over its floor of 5.80 mm (other pads are in the way: it bends 3 time(s))",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 1.0, 'rotation': {'FL3': 90}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  FL2: lowpass [LFCN_FV1206] nets=['GND', 'LNA2LP', 'LP1OUT']\n  FL3: lowpass [LFCN_FV1206] nets=['GND', 'LP1OUT', 'LP2OUT'] rotation_override=90\n  C2: 100nF [C_0603_1608Metric] nets=['COAX', 'LP2OUT']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "lband_element__rot__2",
+   "state": {
+    "result": "critic errors: placement:rf:LNA2LP:over_floor: LNA2LP: shortest path on F.Cu is about 4.53 mm, 12% over its floor of 4.05 mm (other pads are in the way: it bends 1 time(s)); placement:rf:LNAOUT:over_floor: LNAOUT: shortest path on F.Cu is about 7.35 mm, 14% over its floor of 6.45 mm (other pads are in the way: it bends 2 time(s))",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 1.0, 'rotation': {'C1': 90}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']\n  C1: 100nF [C_0603_1608Metric] nets=['LNA2LP', 'LNAOUT'] rotation_override=90\n  FL2: lowpass [LFCN_FV1206] nets=['GND', 'LNA2LP', 'LP1OUT']\n  L1: LNA choke [L_0603_1608Metric] nets=['BIAS', 'LNAOUT']"
+   },
+   "kind": "rotation",
+   "person": false,
+   "family": "rot"
+  },
+  {
+   "id": "lband_element__triple__0",
+   "state": {
+    "result": "build failed: parts span x 5.84..24.08, y 0.90..119.16, outside the 26 x 66 mm outline with a 0.5 mm margin, with U2 set square",
+    "description": "board lband_element outline_mm=[26, 66]\nlayout: {'axis': 'y', 'line': 13.0, 'gap_mm': 7.5, 'rotation': {'U1': 90, 'FL3': 90}}\nRF chain (net: from -> to): ANT: J1.1 -> FL1.1; HPF2LIM: FL1.3 -> U1.1; LIM: U1.4 -> U2.3; LNAOUT: U2.1 -> C1.1; LNA2LP: C1.2 -> FL2.1; LP1OUT: FL2.3 -> FL3.1; LP2OUT: FL3.3 -> C2.1; COAX: C2.2 -> J2.1\n  U1: limiter [RLM_TT1224] nets=['GND', 'HPF2LIM', 'LIM'] rotation_override=90\n  U2: LNA [SOT-343_SC-70-4] nets=['GND', 'LIM', 'LNAOUT']\n  FL3: lowpass [LFCN_FV1206] nets=['GND', 'LP1OUT', 'LP2OUT'] rotation_override=90"
+   },
+   "kind": "spacing",
+   "person": false,
+   "family": "triple"
+  }
+ ]
+}

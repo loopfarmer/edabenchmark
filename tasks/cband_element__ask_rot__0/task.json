@@ -1,0 +1,14 @@
+{
+ "id": "cband_element__ask_rot__0",
+ "board": "cband_element",
+ "family": "ask_rot",
+ "faults": [
+  "project.rails[0].loads.R1.1=REQUIRED",
+  "layout.rotation.C2=180"
+ ],
+ "expect": "ask",
+ "initial": {
+  "built": false,
+  "build_error": "edaloop: the description still needs these currents, in amps: project.rails: VDD load at R1.1"
+ }
+}

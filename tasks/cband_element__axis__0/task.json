@@ -1,0 +1,13 @@
+{
+ "id": "cband_element__axis__0",
+ "board": "cband_element",
+ "family": "axis",
+ "faults": [
+  "layout.axis=y (was x)"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "parts span x 2.42..17.46, y 0.90..56.80, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square"
+ }
+}

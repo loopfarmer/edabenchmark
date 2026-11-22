@@ -1,0 +1,13 @@
+{
+ "id": "cband_element__gap__0",
+ "board": "cband_element",
+ "family": "gap",
+ "faults": [
+  "layout.gap_mm=2.1 (was 0.1)"
+ ],
+ "expect": "clean",
+ "initial": {
+  "built": false,
+  "build_error": "build: no land pattern named CBandLib_FP, RFLib_FP was found in --footprints, so edaloop's stand-ins were used for FL1 (RFLib_FP:LFCN_FV1206), FL2 (CBandLib_FP:HFCN_FV1206-1), FL3 (RFLib_FP:LFCN_FV1206), U1 (RFLib_FP:RLM_TT1224), U2 (CBandLib_FP:MC1631-1, a guessed package), U3 (CBandLib_FP:DQ1225, a guessed package). Give the real library with --footprints before building a board to fabricate | parts span x 0.90..92.85, y 2.54..17.57, outside the 61.7 x 18 mm outline with a 0.5 mm margin, with U1 set square"
+ }
+}
