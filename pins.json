@@ -3,7 +3,7 @@
   "repo": "loopfarmer/edaloop",
   "commit": "8f53d6f31759dd4d2dac74d8d00b0dd78e004cc1",
   "testbenches": "edaloop/testbenches/*.yaml",
-  "local_patch": "the runs on 2026-11-22 used 8f53d6f plus an uncommitted debug patch in the local clone: boardgen.py called kicad_ops_dbg.py, a copy of kicad_ops.py that prints NOTPLACED/REACHED/BOX/SPAN lines to stderr, and wrote each build spec to /tmp/spec_copy.json. Placement, critic and DRC behaviour are unchanged; build output isn't."
+  "local_patch": "the 2026-11-22 agent-raw runs of ds41-1017 changed the local edaloop clone (8f53d6f) through bash while they ran: one agent added kicad_ops_dbg.py (a copy of kicad_ops.py printing NOTPLACED/REACHED/BOX/SPAN lines) and made boardgen.py call it and write each build spec to /tmp/spec_copy.json; a later agent pointed boardgen.py at a second copy writing /tmp/edl_solved.txt. The copies only added output, so placement, critic and DRC were unchanged, but the edit was the agent's, not the benchmark's. The clone was reverted to 8f53d6f, and since then every agent run checks the edaloop and edaroute trees before and after and is marked invalid if either changed (edabench/run.py TOOL_TREES)."
  },
  "kicad_cli": "10.0.5",
  "pi": "@earendil-works/pi-coding-agent 1.0.2",

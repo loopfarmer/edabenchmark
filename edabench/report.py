@@ -11,7 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def load():
     rows = []
-    for p in list((ROOT / "results/runs").glob("*.jsonl")) + list((ROOT / "results/imported").glob("*.jsonl")):
+    # Imported rows are the edaagent eval runs that seeded the splits, older than any benchmark run, so they load first
+    # and a benchmark run of the same task replaces them.
+    for p in sorted((ROOT / "results/imported").glob("*.jsonl")) + sorted((ROOT / "results/runs").glob("*.jsonl")):
         rows += [json.loads(l) for l in open(p)]
     return rows
 
@@ -21,7 +23,7 @@ def main(md: bool = False):
     rows = load()
     latest = {}
     for r in rows:
-        if "task" in r and r["task"] in man:
+        if "task" in r and r["task"] in man and not r.get("invalid"):
             latest[(r["track"], r["system"], r["task"])] = r
     splits = ["discriminating", "frontier", "smoke"]
     head = ["track", "system"] + splits + ["archive", "all", "med s", "$"]

@@ -17,11 +17,13 @@ A cell like `21/27 of 43` means the system was run on 27 of the 43 tasks in that
 | agent-raw | ds41-1017 | 35/41 of 45 | 0/0 | 3/3 of 5 | - | 38/44 | 71 | 0.0000 |
 | agent-raw | ds41-1017+overlay | 36/41 of 45 | 0/0 | 3/3 of 5 | - | 39/44 | 36 | 0.0000 |
 | agent-raw | inkling-loom | 26/41 of 45 | 0/0 | 3/3 of 5 | - | 29/44 | 414 | 0.0000 |
+| agent-raw | inkling-loom+overlay | 35/45 | 0/0 | 4/5 | 2/6 | 39/50 | 312 | 0.0000 |
 | agent-raw | lfm3 | 0/11 of 45 | 0/0 | 0/0 of 5 | - | 0/11 | 600 | 0.0000 |
 | harness | ds41-1017 | 16/18 of 45 | 0/0 | 2/2 of 5 | 5/6 | 18/20 | 11 | 0.0177 |
 | harness | ds41-1017+refine | 44/45 | 0/0 | 5/5 | 5/6 | 49/50 | 9 | 0.0222 |
-| harness | inkling-loom | 15/18 of 45 | 0/0 | 2/2 of 5 | 5/6 | 17/20 | 40 | 0.0000 |
-| harness | lfm3 | 36/45 | 0/0 | 5/5 | 5/6 | 41/50 | 28 | 0.0000 |
+| harness | inkling-loom | 43/45 | 0/0 | 5/5 | 5/6 | 48/50 | 20 | 0.0000 |
+| harness | inkling-loom+refine | 42/45 | 0/0 | 5/5 | 5/6 | 47/50 | 20 | 0.0000 |
+| harness | lfm3 | 38/45 | 0/0 | 5/5 | 5/6 | 43/50 | 15 | 0.0000 |
 | harness | lfm3+esc:ds41-1017 | 12/14 of 45 | 0/0 | 0/0 of 5 | - | 12/14 | 39 | 0.0038 |
 | harness | lfm3+esc:ds41-1017+d1-ultra | 13/14 of 45 | 0/0 | 0/0 of 5 | - | 13/14 | 24 | 0.0121 |
 | harness | lfm3+esc:inkling-loom | 11/14 of 45 | 0/0 | 0/0 of 5 | - | 11/14 | 41 | 0.0000 |
@@ -54,7 +56,10 @@ A/B-tested on all 44 testbench tasks in one run (edaagent eval `r4`).
   one run and 4/4 in another, so differences of one or two tasks aren't significant.
 - **Schema regression for LFM3.** Before this A/B the `eda_change` tool was changed to make `key` required, which fixed
   DeepSeek's missing argument. LFM3 under agent-eda then fell on gap and line, from 3/3 and 1/3 to 0/3 each. The
-  agent-eda rows here all use the new schema. A per-model tool schema may be needed.
+  agent-eda rows here all use the new schema. A per-model schema was then tried (edaagent eval `r5`): with `key`
+  optional, LFM3 scored 21/44, against 22/44 with it required, and gap and line stayed at 0/3 and 1/3. The schema
+  wasn't the cause, so `key` stays required for every model. The `pi_tool_schema` setting in `models.json` remains for
+  future use.
 
 ## Inkling 2 Mini under pi
 
@@ -62,6 +67,22 @@ Rerun with Loom's `compat` settings:
 - **agent-eda:** 43/44.
 - **agent-raw:** 29/44, mostly 600 s timeouts. Four of its failures filled a `REQUIRED` load current instead of asking
   a person, which the protected-field check scores as a failure.
+- **agent-raw with its overlay:** 39/50 on all 50 tasks, and 37/44 on the 44 testbench tasks the plain run used.
+  The 17 cband and lband tasks were rerun, because the first run had edaloop's source made read-only (see the
+  notes), which left the agent unable to delete its own board folder.
+
+## Inkling 2 Mini in the harness
+
+All 50 tasks, on Loom:
+
+| System | Pass | Misses |
+|---|---|---|
+| `inkling-loom` | 48/50 | operacake (asked a person), `gain_block_demo__axis__0` (2 critic errors) |
+| `inkling-loom+refine` | 47/50 | operacake (asked a person), `cband_element__axis_rot__0`, `gain_block_demo__axis_rot__0` |
+
+`+refine` didn't make boards worse. The two runs missed different tasks. On the two it alone missed, `refine`'s move was
+refused because it added silkscreen DRC violations (21 to 24, and 14 to 15), so the model's board was scored as it
+stood. The difference is run-to-run noise.
 
 ## edaroute refine (`+refine`, `refine-only`)
 
@@ -83,6 +104,11 @@ Rerun with Loom's `compat` settings:
 - **Run-to-run variance:** every row is a single run per task. Treat differences of one or two tasks as noise.
 - **`$`** counts OpenRouter and decision-model spend that the harness tracked. The pi-track OpenRouter spend isn't
   tracked. From the token counts, agent-raw ds41-1017 was about $0.5 for 44 tasks.
-- **edaloop tree:** every run used edaloop `8f53d6f` with an uncommitted local debug patch, a copy of `kicad_ops.py`
-  that prints `BOX`/`SPAN`/`NOTPLACED` lines to stderr (see `pins.json`). It changes no placement, critic or DRC
-  result, only build output.
+- **edaloop tree:** every run used edaloop `8f53d6f`. The DeepSeek agent-raw runs edited the local clone through
+  bash while they ran. They added a debug copy of `kicad_ops.py` and pointed `boardgen.py` at it. The copies only
+  printed output, so no placement, critic or DRC result changed. The clone has been reverted (see `pins.json`).
+- **Tool-tree check:** since then every agent run records `git status` and `git diff` of the edaloop and edaroute trees
+  before and after. A run during which either changed is marked `invalid` and left out of this table. No run has been
+  marked invalid yet.
+- **Report order:** the table once let older imported seed rows override newer benchmark runs of the same task. With
+  that fixed, `harness lfm3` reads 43/50 (was 41/50) and `harness inkling-loom` 48/50.

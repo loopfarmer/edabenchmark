@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures as cf
+import hashlib
 import json
 import os
 import shutil
@@ -32,6 +33,19 @@ from edaagent import config as ea_config, description as dsc, state as stt, tier
 from edaagent.driver import fix  # noqa: E402
 
 EDAAGENT = Path(ea_config.ROOT)
+# The trees an agent with bash could edit. A raw agent once patched edaloop's placer to debug it, so every agent run is
+# checked against these: a run during which one changed is marked invalid, and the change is left for a person to see.
+TOOL_TREES = [ea_config.EDALOOP_REPO, Path(ea_config.EDAROUTE).resolve().parents[2]]
+
+
+def tool_trees_digest() -> dict:
+    """Per tool tree: a hash of its uncommitted changes and untracked files (git status + git diff HEAD)."""
+    out = {}
+    for t in TOOL_TREES:
+        st = subprocess.run(["git", "-C", str(t), "status", "--porcelain", "--untracked-files=all"], capture_output=True, text=True).stdout
+        diff = subprocess.run(["git", "-C", str(t), "diff", "HEAD"], capture_output=True, text=True).stdout
+        out[t.name] = {"digest": hashlib.sha256((st + diff).encode()).hexdigest()[:16], "status": st.splitlines()[:20]}
+    return out
 PI_RAW_PROMPT = """Fix the placement of the circuit board described in description.yaml in this folder.
 
 - Build it with `edaloop build description.yaml -o board` (add `--footprints lib` when a lib folder is here) and check it
@@ -139,6 +153,7 @@ def run_pi(work: Path, model: str, raw: bool, timeout: float, overlay: bool = Fa
     sys.path.insert(0, str(EDAAGENT / "eval"))
     import pi_events
     env = dict(os.environ, PI_CODING_AGENT_DIR=str(pi_agent_dir(model)), EDAAGENT_MAX_TURNS="16",
+               EDAAGENT_TOOL_SCHEMA=MODELS["chat"][model].get("pi_tool_schema", "required"),
                PATH=f"{ea_config.EDALOOP.parent}:{os.environ['PATH']}")
     cmd = ["pi", "--mode", "json", "--no-session", "-nc", "-ns", "-na", "--provider", "bench",
            "--model", MODELS["chat"][model]["model"], "--thinking", "off"]
@@ -169,12 +184,17 @@ def run_pi(work: Path, model: str, raw: bool, timeout: float, overlay: bool = Fa
 def one(track: str, model: str, task: dict, args) -> dict:
     tag = args.tag or time.strftime("%Y%m%d")
     work = ROOT / "work" / track / (model + ("+overlay" if args.overlay else "") + ("+refine" if args.refine else "")) / task["id"]
-    shutil.rmtree(work, ignore_errors=True)
+    if work.exists():
+        for f in [work, *work.rglob("*")]:  # a build copies footprints with their source's mode, which may be read-only
+            if not f.is_symlink():
+                f.chmod(f.stat().st_mode | 0o200)
+        shutil.rmtree(work)
     work.mkdir(parents=True)
     shutil.copy(ROOT / "tasks" / task["id"] / "description.yaml", work / "description.yaml")
     if (ROOT / "tasks" / task["id"] / "lib").is_dir():
         shutil.copytree(ROOT / "tasks" / task["id"] / "lib", work / "lib")
     t0 = time.time()
+    before = tool_trees_digest() if track != "harness" else None
     try:
         if track == "harness":
             r = run_harness(work, model, args.escalate, args.decider, args.overlay, args.refine)
@@ -184,6 +204,13 @@ def one(track: str, model: str, task: dict, args) -> dict:
         r = {"outcome": f"crash: {type(e).__name__}: {e}"[:300]}
     r["seconds"] = round(time.time() - t0, 1)
     r.update(score(task, work))
+    if before is not None:
+        after = tool_trees_digest()
+        changed = {k: after[k]["status"] for k in after if after[k]["digest"] != before[k]["digest"]}
+        if changed:
+            # With several workers the change may be another run's, so every run that overlapped it is invalid.
+            r.update({"pass": False, "invalid": "tool tree changed during the run", "tool_trees_changed": changed})
+            print(f"INVALID {task['id']}: tool tree changed: {changed}", file=sys.stderr)
     system = (model + (f"+esc:{args.escalate}" if args.escalate else "") + (f"+{args.decider}" if args.decider else "")
               + ("+overlay" if args.overlay else "") + ("+refine" if args.refine and model != "none" else ""))
     if model == "none":
