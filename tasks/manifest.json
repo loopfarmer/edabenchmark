@@ -32,6 +32,27 @@
    "systems_run": 8
   },
   {
+   "id": "archive-lna915__fold__0",
+   "board": "archive-lna915",
+   "family": "fold",
+   "expect": "clean",
+   "faults": [
+    "layout.gap_mm=2.1 (was 0.1)"
+   ],
+   "parts": 25,
+   "split": "pending",
+   "sha": "70aa5a8dfc6f6594",
+   "systems_passed": 0,
+   "systems_run": 0,
+   "requires": {
+    "edaloop": [
+     "loopfarmer/edaloop#60",
+     "loopfarmer/edaloop#63",
+     "loopfarmer/edaloop#66"
+    ]
+   }
+  },
+  {
    "id": "archive-lora__combo__0",
    "board": "archive-lora",
    "family": "combo",

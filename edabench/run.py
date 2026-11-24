@@ -1,6 +1,6 @@
 """edabenchmark runner.
 
-  edabench run --track harness   --model lfm3            [--split discriminating|smoke|all] [--workers 4] [--tag T]
+  edabench run --track harness   --model lfm3            [--split discriminating|smoke|pending|all] [--workers 4] [--tag T]
   edabench run --track agent-eda --model ds41-1017       (pi + the edaagent tools)
   edabench run --track agent-raw --model inkling-loom    (pi + bash/read/edit/write + edaloop's SKILL.md)
   edabench run --track decision  --model d1-ultra
@@ -66,7 +66,8 @@ def manifest() -> list[dict]:
 
 def select(split: str, only: str = "") -> list[dict]:
     ts = manifest()
-    ts = ts if split == "all" else [t for t in ts if t["split"] == split]
+    # A pending task needs an edaloop the pin doesn't have yet (tools/freeze_tasks.py), so no run can pass it.
+    ts = [t for t in ts if t["split"] != "pending"] if split == "all" else [t for t in ts if t["split"] == split]
     if only:
         keys = set(only.split(","))
         ts = [t for t in ts if t["id"] in keys or t["family"] in keys or t["board"] in keys
@@ -256,7 +257,7 @@ def main(argv=None):
     r.add_argument("--model", required=True)
     r.add_argument("--escalate", default=None, help="harness track: a stronger chat model to escalate to")
     r.add_argument("--decider", default=None, help="harness track with --escalate: a decision model gating escalation")
-    r.add_argument("--split", default="discriminating", choices=["discriminating", "smoke", "all"])
+    r.add_argument("--split", default="discriminating", choices=["discriminating", "smoke", "pending", "all"])
     r.add_argument("--workers", type=int, default=4)
     r.add_argument("--timeout", type=float, default=600)
     r.add_argument("--tag", default=None)

@@ -39,13 +39,19 @@ errors on it, and KiCad's DRC with zones refilled finds no violation type more o
 | `ask`, `ask_rot` | A rail load current is `REQUIRED`, with or without a rotation fault. The right answer is to ask. | 4 + 4 |
 | `axis`, `axis_rot` | `layout.axis` is flipped. No skill card covers it, and the overflow hint points at the gap, which can't fix it. | 3 + 3 |
 | `rot2`, `triple` | Two rotation faults, or two plus a gap fault | 4 + 4 |
-| `archive-*` | Real released boards from edaloop's evaluation archive (see below) | 6 |
+| `archive-*` | Real released boards from edaloop's evaluation archive (see below) | 6 + 1 pending |
 
 The first 44 are built from edaloop's four testbenches (`eval/gen_tasks.py` and `eval/gen_hard.py` in edaagent). The
 archive tasks use real boards:
 
 - **LoRa breakout** (Adafruit, 18 parts) and **QT Py ESP32 Pico** (Adafruit, 42 parts): injected rotation and combo faults.
 - **LNA915** (Great Scott Gadgets, 25 parts): `edaloop describe` leaves 10 load currents `REQUIRED`, a real ask task.
+  A second task, `archive-lna915__fold__0` (`tools/gen_fold.py`), is the only one that reaches edaloop's fold. LNA915's RF
+  row runs from one SMA of a two-SMA kit back to the other, 10.49 mm away. Laid out along one line it's about 33 mm, so
+  edaloop folds it into a U between the ports. The task's `layout.gap_mm` is 2.1 mm, gen_archive's gap fault. At that
+  spacing no fold fits, and the build is refused without naming the gap. At the described 0.1 mm, or at 0.5, it folds
+  and the critic finds no errors. Its 10 load currents are 0.01 A placeholders, set so it builds, and its `assumed` list
+  says so. It needs edaloop #60, #63 and #66, which the pin doesn't have yet, so it's `pending` (below).
 - **Operacake** (Great Scott Gadgets, 152 parts): the released placement, as described, already fails the critic on the
   C9 RF net. No description edit has fixed it. edaroute's `refine` clears it in seconds by moving C9 and U2, so the
   task now separates systems that can move parts from those that can't.
@@ -61,6 +67,9 @@ exported to `lib/imported.pretty`.
 - **`discriminating`** (the default): at least one system passed it and at least one failed. These separate systems.
 - **`smoke`**: every system passed. It checks that the harness works but doesn't measure a model.
 - **`frontier`**: nothing has passed it yet.
+- **`pending`**: the task needs edaloop changes the pin doesn't have. Its `task.json` names them under `requires`, and it
+  stays pending until `pins.json` lists each under `edaloop.includes`. Runs skip it, `--split all` included;
+  `--split pending` runs it deliberately, against the edaloop that `EDAAGENT_EDALOOP` names.
 
 Rerun the freeze after adding results, so the splits keep tracking what separates systems.
 

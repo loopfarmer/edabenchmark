@@ -9,6 +9,8 @@ footprint library, and writes tasks/manifest.json. A task's split comes from eve
   smoke           every system passed: a check that the harness works, not a measure
   frontier        no system has passed it yet (or it was built to be unsolved): kept to catch a stronger system
   unscored        no results yet
+  pending         the task needs edaloop changes the pin doesn't have yet: its task.json `requires` names them, and it
+                  counts once pins.json lists each under edaloop.includes. Runs skip it, even with --split all.
 """
 from __future__ import annotations
 
@@ -51,6 +53,8 @@ def main():
                 continue
             system = r.get("system") or r.get("arm")
             outcomes[r["task"]][f"{r.get('track', 'harness')}|{system}"] = bool(r["pass"])
+    pins = json.loads((ROOT / "pins.json").read_text())
+    have = set(pins.get("edaloop", {}).get("includes", []))
     tasks = []
     for d in sorted(out.iterdir()):
         if not (d / "task.json").exists():
@@ -65,10 +69,13 @@ def main():
             split = "frontier"
         else:
             split = "discriminating"
+        missing = [x for x in t.get("requires", {}).get("edaloop", []) if x not in have]
+        if missing:
+            split = "pending"
         tasks.append({"id": t["id"], "board": t["board"], "family": t["family"], "expect": t["expect"],
                       "faults": t["faults"], "parts": t.get("parts"), "split": split, "sha": digest(d),
-                      "systems_passed": sum(res.values()), "systems_run": len(res)})
-    pins = json.loads((ROOT / "pins.json").read_text())
+                      "systems_passed": sum(res.values()), "systems_run": len(res),
+                      **({"requires": t["requires"]} if t.get("requires") else {})})
     (out / "manifest.json").write_text(json.dumps({"pins": pins, "tasks": tasks}, indent=1))
     counts = defaultdict(int)
     for t in tasks:

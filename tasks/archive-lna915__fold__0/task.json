@@ -1,0 +1,23 @@
+{
+ "id": "archive-lna915__fold__0",
+ "board": "archive-lna915",
+ "family": "fold",
+ "faults": [
+  "layout.gap_mm=2.1 (was 0.1)"
+ ],
+ "expect": "clean",
+ "source": "edaloop evaluation archive",
+ "licence": "GPL-2.0 (the repository's licence; the board folder has none of its own)",
+ "parts": 25,
+ "requires": {
+  "edaloop": [
+   "loopfarmer/edaloop#60",
+   "loopfarmer/edaloop#63",
+   "loopfarmer/edaloop#66"
+  ]
+ },
+ "initial": {
+  "built": false,
+  "build_error": "edaloop: placement failed: the row doesn't fit between P1's ports: P1.3 and P1.1 are 10.49 mm apart, but the row from P1.3 to L1.1 runs 58.58 mm along the line, with C5 the first part past P1.1, and no fold of it into a U between the ports fits either, even with its taps beside the line"
+ }
+}

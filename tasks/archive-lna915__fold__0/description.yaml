@@ -1,0 +1,262 @@
+name: lna915
+summary: 'Described from lna915.kicad_pcb. 1 RF path(s), the first: P1 > C5 > U4 > C1 > U1 > C8 > U3 > C6 > U2 > C2 > P1'
+band_mhz:
+- 902.0
+- 928.0
+supply_v: 5.0
+stackup:
+  copper_um:
+  - 35.0
+  - 15.2
+  - 15.2
+  - 35.0
+  dielectric_mm:
+  - 0.2
+  - 1.1
+  - 0.2
+  epsilon_r: 4.5
+  loss_tangent: 0.02
+rf_line_width_mm: 0.29337
+assumed:
+- 'project.rails: the 10 load currents describe left REQUIRED (VCC at L2.2, VCC at R1.1, VCC at R2.1, VCC at U1.1, VCC at
+  U1.2, VCC at U2.1, VCC at U2.2, VCC at U3.1, VCC at U3.5, VCC at L4.1) are 0.01 A each, placeholders set by edabenchmark
+  so the board builds, not the board''s real draw'
+likely_rails:
+- Net-(C10-Pad2)
+parts:
+  D4:
+    value: LNALED
+  C4:
+    value: 100pF
+  C5:
+    value: 100pF
+  C1:
+    value: 100pF
+  D2:
+    value: D_TVS
+  C3:
+    value: 100pF
+  L2:
+    value: 39nH
+  C10:
+    value: 1uF
+  C6:
+    value: 100pF
+  C2:
+    value: 100pF
+  C11:
+    value: 1uF
+  R1:
+    value: 3k
+  R2:
+    value: '470'
+  D1:
+    value: D_TVS
+  C7:
+    value: 100pF
+  C8:
+    value: 100pF
+  L3:
+    value: 39nH
+  U1:
+    value: SWITCH
+  U4:
+    value: SAW
+  U2:
+    value: SWITCH
+  U3:
+    value: LNA
+  P1:
+    value: SMA-KIT-1.5MF
+  L1:
+    value: 39nH
+  L4:
+    value: 39nH
+  C9:
+    value: 1 pF
+nets:
+  GND:
+  - D4.1
+  - C4.1
+  - D2.1
+  - C3.1
+  - C10.1
+  - C11.1
+  - D1.1
+  - U1.5
+  - U1.7
+  - U4.2
+  - U4.3
+  - U4.5
+  - U2.5
+  - U2.7
+  - U3.7
+  - P1.2
+  - P1.4
+  - C9.2
+  Net-(D4-Pad2):
+  - D4.2
+  - R2.2
+  VCC:
+  - C4.2
+  - C3.2
+  - L2.2
+  - C11.2
+  - R1.1
+  - R2.1
+  - U1.1
+  - U1.2
+  - U2.1
+  - U2.2
+  - U3.1
+  - U3.5
+  - L1.2
+  - L4.1
+  Net-(C5-Pad1):
+  - C5.1
+  - L2.1
+  - P1.3
+  Net-(C5-Pad2):
+  - C5.2
+  - D2.2
+  - U4.1
+  Net-(C1-Pad1):
+  - C1.1
+  - U4.4
+  Net-(C1-Pad2):
+  - C1.2
+  - U1.3
+  Net-(C10-Pad2):
+  - C10.2
+  - L3.2
+  - U3.2
+  Net-(C6-Pad1):
+  - C6.1
+  - U3.4
+  - L4.2
+  Net-(C6-Pad2):
+  - C6.2
+  - U2.4
+  Net-(C2-Pad1):
+  - C2.1
+  - U2.3
+  - C9.1
+  Net-(C2-Pad2):
+  - C2.2
+  - D1.2
+  - P1.1
+  - L1.1
+  Net-(R1-Pad2):
+  - R1.2
+  - U3.6
+  Net-(C7-Pad1):
+  - C7.1
+  - U1.6
+  Net-(C7-Pad2):
+  - C7.2
+  - U2.6
+  Net-(C8-Pad1):
+  - C8.1
+  - U1.4
+  Net-(C8-Pad2):
+  - C8.2
+  - L3.1
+  - U3.3
+open_pins: []
+chain:
+- - Net-(C5-Pad1)
+  - P1.3
+  - C5.1
+- - Net-(C5-Pad2)
+  - C5.2
+  - U4.1
+- - Net-(C1-Pad1)
+  - U4.4
+  - C1.1
+- - Net-(C1-Pad2)
+  - C1.2
+  - U1.3
+- - Net-(C8-Pad1)
+  - U1.4
+  - C8.1
+- - Net-(C8-Pad2)
+  - C8.2
+  - U3.3
+- - Net-(C6-Pad1)
+  - U3.4
+  - C6.1
+- - Net-(C6-Pad2)
+  - C6.2
+  - U2.4
+- - Net-(C2-Pad1)
+  - U2.3
+  - C2.1
+- - Net-(C2-Pad2)
+  - C2.2
+  - P1.1
+spice:
+  models: {}
+  bench:
+    name: bias
+    stimulus:
+    - Vcable Net-(C2-Pad2) 0 DC 5
+    measure:
+    - .control
+    - op
+    - let i_total_ma = -i(vcable)*1000
+    - print i_total_ma
+    - quit
+    - .endc
+  expect: {}
+layout:
+  axis: x
+  line: 30.0
+  gap_mm: 2.1
+  pour_clearance_mm: 0.3
+  footprints:
+    D4: imported:0402
+    C4: imported:0402
+    C5: imported:0402
+    C1: imported:0402
+    D2: imported:0402
+    C3: imported:0402
+    L2: imported:0402
+    C10: imported:0402
+    C6: imported:0402
+    C2: imported:0402
+    C11: imported:0402
+    R1: imported:0402
+    R2: imported:0402
+    D1: imported:0402
+    C7: imported:0402
+    C8: imported:0402
+    L3: imported:0402
+    U1: imported:GRF6011
+    U4: imported:F5Q
+    U2: imported:GRF6011
+    U3: imported:TSLP-7-1
+    P1: imported:SMA-KIT-1.5MF
+    L1: imported:0402
+    L4: imported:0402
+    C9: imported:0402
+  ground:
+    fence_pitch_mm: 4.0
+    stitch_pitch_mm: 4.0
+  unlisted_pads: open
+project:
+  eps_eff: 3.25
+  rails:
+  - net: VCC
+    source: L1.2
+    loads:
+      L2.2: 0.01
+      R1.1: 0.01
+      R2.1: 0.01
+      U1.1: 0.01
+      U1.2: 0.01
+      U2.1: 0.01
+      U2.2: 0.01
+      U3.1: 0.01
+      U3.5: 0.01
+      L4.1: 0.01
+    max_drop_mv: 50
